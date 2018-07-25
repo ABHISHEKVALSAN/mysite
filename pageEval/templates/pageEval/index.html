@@ -1,0 +1,44 @@
+<!-- pageEval -->
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'pageEval/css/bootstrap.css' %}" />
+<style>
+.button {
+    background-color: #4CAF50;
+    border-style: solid;
+    border-width: thin;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: inherit;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: center;
+
+
+    height: 60px;
+    width: 400px;
+    
+}
+h1{
+	top:200px;
+	color: MintyRose;
+}
+a{
+	position: center;
+}
+b{
+	font-family: inherit;
+}
+body{
+	background: LightCyan;
+}
+</style>
+<center>
+	<h1> Welcome to Home Page!!!</h1>
+</center>
+<a href="{% url 'pageEval:detail' %}" class="button">
+	<b>GET STARTED</b>
+</a>

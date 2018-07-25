@@ -1,0 +1,13 @@
+<!-- pollSite-->
+
+<h1>{{ object.question_text }}</h1>
+
+<ul>
+{% for choice in object.choice_set.all %}
+    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'pollSite:detail' object.id %}">Vote again?</a>
+
+
