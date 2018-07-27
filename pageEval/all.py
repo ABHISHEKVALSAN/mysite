@@ -335,9 +335,9 @@ def main(filename):
 		graphicsPercent=graphicsSize*100.0/pageSize
 			
 	if wordCount:
-		print(wordCount,",", textBodyRatio/wordCount,",", emphText ,",", textPositionalChanges,"," , textClusters,"," , visibleLinks ,",", pageSize ,",",graphicsPercent,",", graphicsCount,",", colorCount,",", fontCount,",",url)
+		print(wordCount,"\n", textBodyRatio/wordCount,"\n", emphText ,"\n", textPositionalChanges,"\n" , textClusters,"\n" , visibleLinks ,"\n", pageSize ,"\n",graphicsPercent,"\n", graphicsCount,"\n", colorCount,"\n", fontCount)
 	else:
-		print(wordCount,", 0.0 ,", emphText ,",", textPositionalChanges,"," , textClusters,"," , visibleLinks ,",", pageSize ,",",graphicsPercent,",", graphicsCount,",", colorCount,",", fontCount,",",url)
+		print(wordCount,"\n 0.0 \n", emphText ,"\n", textPositionalChanges,"\n" , textClusters,"\n" , visibleLinks ,"\n", pageSize ,"\n",graphicsPercent,"\n", graphicsCount,"\n", colorCount,"\n", fontCount)
 			
 if __name__=="__main__":
 	url=sys.argv[-1]
