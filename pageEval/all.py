@@ -1,12 +1,9 @@
 from pyvirtualdisplay import Display
 from bs4 import BeautifulSoup
-from collections import defaultdict
 from itertools import groupby
 from PIL import Image
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
-from webcolors import rgb_to_name
-from contextlib import closing
 
 import webcolors
 import re
