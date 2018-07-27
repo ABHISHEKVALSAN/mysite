@@ -1,3 +1,4 @@
+from pyvirtualdisplay import Display
 from bs4 import BeautifulSoup
 from collections import defaultdict
 from itertools import groupby
@@ -30,10 +31,9 @@ def closest_colour(requested_colour):
 
 def colour_name(requested_colour):
     try:
-        closest_name = actual_name = webcolors.rgb_to_name(requested_colour)
+        closest_name = webcolors.rgb_to_name(requested_colour)
     except ValueError:
         closest_name = closest_colour(requested_colour)
-        actual_name = None
     return closest_name
     
     
@@ -46,7 +46,7 @@ def string_to_words(s):
 def get_words(d):
 	txt=d.execute_script("return document.body.innerText")
 	if txt==None:
-		txt=d.execute_script("return document.body.innerText")
+		txt=""
 	words = string_to_words(str(unidecode.unidecode(txt)))	
 	return words	
 
@@ -57,11 +57,8 @@ def get_words(d):
 
 
 def get_word_count(d):
-
-	#print "Param1"
-	
+	#print "Param1"	
 	words=get_words(d)
-	#print words
 	return float(len(words))
 
 
@@ -174,7 +171,6 @@ def get_visible_links(d):
 	#print "Param6"
 
 	links=d.find_elements_by_tag_name("a")
-	#print len(links)
 	visibleLinkCount=0
 	for i in links:
 		if i.text != "":
@@ -198,7 +194,6 @@ def get_page_size(d):
 			pageSize+=int(i[u'transferSize'])
 		except:
 			pass
-	#print float(pageSize)/1024.0
 	return float(pageSize)/1024.0
 	
 
@@ -220,7 +215,6 @@ def get_graphics_size(d):
 				graphicsSize+=int(i[u'transferSize'])
 		except:
 			pass
-	#print float(graphicsSize)/1024
 	return float(graphicsSize)/1024.0
 #--------------------------------------------#
 #----------- 9. Graphics Count --------------#
@@ -229,7 +223,6 @@ def get_graphics_size(d):
 def get_graphics_count(d):
 
 	#print "Param9"
-
 	styleSteets=d.find_elements_by_tag_name("style")
 	images=d.execute_script("return document.images;")
 	graphicsCount=len(styleSteets)+len(images)  
@@ -242,26 +235,18 @@ def get_graphics_count(d):
 
 
 def get_color_count(d):
-
 	#print "Param10"
-	d.maximize_window()
-	d.set_window_size(d.get_window_size()['width'],d.get_window_size()['height']*10)
-	d.get_screenshot_as_file('screenshot.png') 
+	d.save_screenshot('screenshot.png') 
 	img 	 = Image.open('screenshot.png')
 	
 	p=img.getdata()
-	total_pix=len(p)
-	#print(total_pix)
-	
+	total_pix=len(p)	
 	p_list=[i[:-1] for i in p]
 	p_list.sort()
-	
 	temp = [[len(list(group)),key] for key,group in groupby(p_list)]
 	temp.sort()
-	#print len(temp)
 	
 	#Keeping a threshold on the colors
-	
 	p_freq=[]
 	for i in temp[::-1]:
 		if i[0]>1:
@@ -271,17 +256,13 @@ def get_color_count(d):
 	
 	p_color = [[colour_name(p_freq[i][1]),p_freq[i][0]] for i in range(len(p_freq))]
 	p_color.sort()
-	
-	#print p_color
-	
+		
 	p_color_uni=[p_color[0]]
 	for i in p_color[1:]:
 		if p_color_uni[-1][0]==i[0]:
 			p_color_uni[-1][1]+=i[1]
 		else:
-			p_color_uni.append(i)
-	#print p_color_uni
-	
+			p_color_uni.append(i)	
 	total_color_pix=0
 	for i in p_color_uni:
 		total_color_pix+=i[1]
@@ -304,81 +285,60 @@ def get_font_count(d):
 
 	#print("Param11")
 
-	boldCount	= d.find_elements_by_tag_name("b")
-	italicCount	= d.find_elements_by_tag_name("i")
-	bigCount	= d.find_elements_by_tag_name("big")
-	strongCount	= d.find_elements_by_tag_name("big")
+	bold		= d.find_elements_by_tag_name("b")
+	italic		= d.find_elements_by_tag_name("i")
+	big		= d.find_elements_by_tag_name("big")
+	strong		= d.find_elements_by_tag_name("big")
 	
-	faces=d.find_elements_by_tag_name("font")
-	fontFaces=""
+	faces		=d.find_elements_by_tag_name("font")
+	fontFaces	=""
 	for face in faces:
-		fontFaces+=  (str(face).split("face=\"")[-1]).split("\"")[0]+","
-
+		fontFaces	+=  (str(face).split("face=\"")[-1]).split("\"")[0]+","
 	faceCount 	= len(set(fontFaces.split(",")))-1
 	
-	#print boldCount,italicCount,bigCount,strongCount,faceCount
-	fontCount =len(boldCount)+len(italicCount)+len(bigCount)+len(strongCount)+faceCount
+	fontCount =len(bold)+len(italic)+len(big)+len(strong)+faceCount
 	return fontCount
 	
 
 def main(filename):
-	#chrome_options = Options()
-	#chrome_options.add_argument('--disable-extensions')
-	#chrome_options.add_argument('--headless')
-	#driver = webdriver.Chrome(chrome_options=chrome_options)
-
-
-
-
-
-	#url='https://www.youtube.com'
-	#url="http://www.baidu.com"
+	display = Display(visible=0, size=(800, 600))
+	display.start()
+	driver=webdriver.Firefox()
+	driver.implicitly_wait(3)
+	driver.get(url)
+	WebDriverWait(driver, timeout=10).until(lambda x: x.find_elements_by_tag_name('body'))
+	page_source=driver.page_source
+	soup=BeautifulSoup(page_source,'html.parser')
 	
-	f=open(filename,"r")
+	#---------------------------------------------------#
+	#--------- Web Metric Calculation ------------------#
+	#---------------------------------------------------#
 	
-	urls=[]
-	for i in f:
-	        urls.append(i[:-1])
+	wordCount		= get_word_count(driver)			#Parameter 1
+	textBodyRatio		= get_text_body_ratio(soup)			#Parameter 2
+	emphText		= get_emph_body_text_percentage(driver)		#Parameter 3
+	textPositionalChanges	= get_text_position_changes(soup)		#Parameter 4
+	textClusters		= get_text_clusters(driver)			#Parameter 5
+	visibleLinks		= get_visible_links(driver)			#Parameter 6
+	pageSize		= get_page_size(driver)				#Parameter 7
+	graphicsSize		= get_graphics_size(driver)			#Parameter 8
+	graphicsCount 		= get_graphics_count(driver)			#Parameter 9  
+	colorCount		= get_color_count(driver)			#Parameter 10
+	fontCount		= get_font_count(driver)			#Parameter 11
 	
-	options = Options()
-	options.add_argument("--headless")
-	
-	with closing(Firefox(firefox_options=options)) as driver:	
-		for url in urls:
-			#print(url)
-			driver.implicitly_wait(3)
-			driver.get(url)
-			WebDriverWait(driver, timeout=10).until(lambda x: x.find_elements_by_tag_name('body'))
-			page_source=driver.page_source
-			soup=BeautifulSoup(page_source,'html.parser')
-	
-				#---------------------------------------------------#
-				#--------- Web Metric Calculation ------------------#
-				#---------------------------------------------------#
-	
-			wordCount		= get_word_count(driver)			#Parameter 1
-			textBodyRatio		= get_text_body_ratio(soup)			#Parameter 2
-			emphText		= get_emph_body_text_percentage(driver)		#Parameter 3
-			textPositionalChanges	= get_text_position_changes(soup)		#Parameter 4
-			textClusters		= get_text_clusters(driver)			#Parameter 5
-			visibleLinks		= get_visible_links(driver)			#Parameter 6
-			pageSize		= get_page_size(driver)				#Parameter 7
-			graphicsSize		= get_graphics_size(driver)			#Parameter 8
-			graphicsCount 		= get_graphics_count(driver)			#Parameter 9  
-			colorCount		= get_color_count(driver)			#Parameter 10
-			fontCount		= get_font_count(driver)			#Parameter 11
+	driver.quit()
+	display.stop()
 			
+	if pageSize==0:
+		graphicsPercent=0
+	else:
+		graphicsPercent=graphicsSize*100.0/pageSize
 			
-			if pageSize==0:
-				graphicsPercent=0
-			else:
-				graphicsPercent=graphicsSize*100.0/pageSize
-			
-			if wordCount:
-			        print(wordCount,",", textBodyRatio/wordCount,",", emphText ,",", textPositionalChanges,"," , textClusters,"," , visibleLinks ,",", pageSize ,",",graphicsPercent,",", graphicsCount,",", colorCount,",", fontCount,",",url)
-			else:
-			        print(wordCount,", 0.0 ,", emphText ,",", textPositionalChanges,"," , textClusters,"," , visibleLinks ,",", pageSize ,",",graphicsPercent,",", graphicsCount,",", colorCount,",", fontCount,",",url)
+	if wordCount:
+		print(wordCount,",", textBodyRatio/wordCount,",", emphText ,",", textPositionalChanges,"," , textClusters,"," , visibleLinks ,",", pageSize ,",",graphicsPercent,",", graphicsCount,",", colorCount,",", fontCount,",",url)
+	else:
+		print(wordCount,", 0.0 ,", emphText ,",", textPositionalChanges,"," , textClusters,"," , visibleLinks ,",", pageSize ,",",graphicsPercent,",", graphicsCount,",", colorCount,",", fontCount,",",url)
 			
 if __name__=="__main__":
-	filename=sys.argv[-1]
-	main(filename)	
+	url=sys.argv[-1]
+	main(url)	
