@@ -4,20 +4,15 @@ from collections import defaultdict
 from itertools import groupby
 from PIL import Image
 from selenium import webdriver
-from selenium.webdriver.firefox.options import Options
-from selenium.webdriver import Firefox
 from selenium.webdriver.support.ui import WebDriverWait
 from webcolors import rgb_to_name
 from contextlib import closing
 
 import webcolors
 import re
-import requests
 import string
 import sys
-import time
 import unidecode
-import urllib
 
 def closest_colour(requested_colour):
     min_colours = {}
