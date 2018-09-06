@@ -25,9 +25,9 @@ def results(request):
 
 def metrics(request):
 	url		= request.POST['urlText']
-	command 	= [sys.executable,"/home/avk/mysite/pageEval/test.py",url]
+	command 	= [sys.executable,"/home/avk/git/mysite/pageEval/all.py",url]
 	output		= subprocess.Popen(command, stdout=subprocess.PIPE, stderr = subprocess.STDOUT )
-	webMetrics	= output.communicate()[0].split("\n")[:-1]
+	webMetrics	= output.communicate()[0].decode("utf-8").split("\n")
 	return render(request, 'pageEval/results.html',{
 	'webMetrics' 	: webMetrics,
 	})
