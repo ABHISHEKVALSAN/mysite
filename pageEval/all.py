@@ -1,8 +1,10 @@
-from pyvirtualdisplay import Display
 from bs4 import BeautifulSoup
 from itertools import groupby
 from PIL import Image
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options  
+from selenium.webdriver import FirefoxOptions
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from selenium.webdriver.support.ui import WebDriverWait
 
 import webcolors
@@ -245,26 +247,25 @@ def get_color_count(d):
 			p_freq.append(i)
 		else:
 			break
-	
+
 	p_color = [[colour_name(p_freq[i][1]),p_freq[i][0]] for i in range(len(p_freq))]
 	p_color.sort()
-		
 	p_color_uni=[p_color[0]]
 	for i in p_color[1:]:
 		if p_color_uni[-1][0]==i[0]:
 			p_color_uni[-1][1]+=i[1]
 		else:
-			p_color_uni.append(i)	
+			p_color_uni.append(i)
 	total_color_pix=0
 	for i in p_color_uni:
 		total_color_pix+=i[1]
-	
+
 	c_count=0
 	for i in range(len(p_color_uni)):
 		if float(p_color_uni[i][1])/total_color_pix>0.01:
 			#print p_color_uni[i]
 			c_count+=1
-	
+
 	return c_count
 
 
@@ -292,34 +293,41 @@ def get_font_count(d):
 	return fontCount
 	
 
-def main(url):
-	display = Display(visible=0, size=(800, 600))
-	display.start()
-	driver=webdriver.Firefox()
+def main(filename):
+	#binary = FirefoxBinary("/usr/bin/firefox")
+	#driver=webdriver.Firefox(firefox_binary=binary)
+	#opts = FirefoxOptions()
+	#opts.add_argument("--headless")
+	#driver = webdriver.Firefox(firefox_options=opts)
+	options = Options()
+	options.add_argument("--headless")
+	options.add_argument('--no-sandbox')
+	options.add_argument('--disable-gpu')
+	options.add_argument('--remote-debugging-port=9222')
+	#options.binary_location = "/app/.apt/usr/bin/google-chrome"
+	chrome_driver_binary="/home/abhi/git/mysite/venv/bin/chromedriver"
+	driver= webdriver.Chrome(chrome_options=options)
 	driver.implicitly_wait(3)
 	driver.get(url)
 	WebDriverWait(driver, timeout=10).until(lambda x: x.find_elements_by_tag_name('body'))
 	page_source=driver.page_source
 	soup=BeautifulSoup(page_source,'html.parser')
-	
 	#---------------------------------------------------#
 	#--------- Web Metric Calculation ------------------#
 	#---------------------------------------------------#
-	
-	wordCount		= get_word_count(driver)			#Parameter 1
-	textBodyRatio		= get_text_body_ratio(soup)			#Parameter 2
-	emphText		= get_emph_body_text_percentage(driver)		#Parameter 3
-	textPositionalChanges	= get_text_position_changes(soup)		#Parameter 4
-	textClusters		= get_text_clusters(driver)			#Parameter 5
-	visibleLinks		= get_visible_links(driver)			#Parameter 6
-	pageSize		= get_page_size(driver)				#Parameter 7
-	graphicsSize		= get_graphics_size(driver)			#Parameter 8
-	graphicsCount 		= get_graphics_count(driver)			#Parameter 9  
-	colorCount		= get_color_count(driver)			#Parameter 10
-	fontCount		= get_font_count(driver)			#Parameter 11
+	wordCount					= get_word_count(driver)				#Parameter 1
+	textBodyRatio				= get_text_body_ratio(soup)				#Parameter 2
+	emphText					= get_emph_body_text_percentage(driver)			#Parameter 3
+	textPositionalChanges		= get_text_position_changes(soup)			#Parameter 4
+	textClusters				= get_text_clusters(driver)				#Parameter 5
+	visibleLinks				= get_visible_links(driver)				#Parameter 6
+	pageSize					= get_page_size(driver)					#Parameter 7
+	graphicsSize				= get_graphics_size(driver)				#Parameter 8
+	graphicsCount 				= get_graphics_count(driver)				#Parameter 9  
+	colorCount					= 10#get_color_count(driver)				#Parameter 10
+	fontCount					= get_font_count(driver)				#Parameter 11
 	
 	driver.quit()
-	display.stop()
 			
 	if pageSize==0:
 		graphicsPercent=0
