@@ -8,6 +8,9 @@ from django.urls import reverse
 from django.views import generic
 
 
+#activate_this = "/home/abhiavk/mysite/venv/bin/activate_this.py"
+#execfile(activate_this, dict(__file__=activate_this))
+
 def index(request):
 	return render(request, 'pageEval/index.html')
 
@@ -25,9 +28,9 @@ def results(request):
 
 def metrics(request):
 	url		= request.POST['urlText']
-	command 	= [sys.executable,"pageEval/all.py",url]
+	command 	= [sys.executable,"/home/abhiavk/mysite/pageEval/all.py",url]
 	output		= subprocess.Popen(command, stdout=subprocess.PIPE, stderr = subprocess.STDOUT )
-	webMetrics	= output.communicate()[0].decode("utf-8").split("\n")
+	webMetrics	= output.communicate()[0].decode("utf-8").split("\n")+[str(sys.executable)]
 	return render(request, 'pageEval/results.html',{
 	'webMetrics' 	: webMetrics,
 	})

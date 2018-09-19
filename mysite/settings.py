@@ -24,6 +24,24 @@ SECRET_KEY = 'a1fw3wrvgk!po644jp@cxa9fda^!_rq1ttqob$*js2z)_bgwh-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+SECURE_HSTS_SECONDS=1000
+SECURE_CONTENT_TYPE_NOSNIFF=True
+SECURE_BROWSER_XSS_FILTER=True
+SECURE_SSL_REDIRECT=True
+SESSION_COOKIE_SECURE=True
+CSRF_COOKIE_SECURE =True
+X_FRAME_OPTIONS='DENY'
+SECURE_HSTS_INCLUDE_SUBDOMAINS=True
+SECURE_HSTS_PRELOAD=True
+CORS_REPLACE_HTTPS_REFERER      = False
+HOST_SCHEME                     = "http://"
+SECURE_PROXY_SSL_HEADER         = None
+SECURE_SSL_REDIRECT             = False
+SESSION_COOKIE_SECURE           = False
+CSRF_COOKIE_SECURE              = False
+SECURE_HSTS_SECONDS             = None
+SECURE_HSTS_INCLUDE_SUBDOMAINS  = False
+SECURE_FRAME_DENY               = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -118,5 +136,5 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
-STATIC_URL = '/static/'
+STATIC_URL = '/home/abhiavk/mysite/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
