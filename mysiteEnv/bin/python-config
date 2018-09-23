@@ -1,4 +1,4 @@
-#!/home/abhiavk/mysite/mysiteEnv/bin/python
+#!/home/abhiavk/git/mysite/mysiteEnv/bin/python
 
 import sys
 import getopt
