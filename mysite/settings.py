@@ -49,8 +49,8 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-	'pageEval.apps.PageevalConfig',
-	'pollSite.apps.PollsiteConfig',
+		'pageEval.apps.PageevalConfig',
+		'pollSite.apps.PollsiteConfig',
     	'django.contrib.admin',
     	'django.contrib.auth',
     	'django.contrib.contenttypes',
