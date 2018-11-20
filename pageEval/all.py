@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 from itertools import groupby
 from PIL import Image
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options  
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver import FirefoxOptions
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from selenium.webdriver.support.ui import WebDriverWait
@@ -29,20 +29,20 @@ def colour_name(requested_colour):
     except ValueError:
         closest_name = closest_colour(requested_colour)
     return closest_name
-    
-    
+
+
 def string_to_words(s):
 	s=s.replace("\n"," ")
 	s=s.replace(string.punctuation,"")
 	s=re.sub("[^\w]"," ",  s).split()
 	return s
-	
+
 def get_words(d):
 	txt=d.execute_script("return document.body.innerText")
 	if txt==None:
 		txt=""
-	words = string_to_words(str(unidecode.unidecode(txt)))	
-	return words	
+	words = string_to_words(str(unidecode.unidecode(txt)))
+	return words
 
 
 #--------------------------------------------#
@@ -51,7 +51,7 @@ def get_words(d):
 
 
 def get_word_count(d):
-	#print "Param1"	
+	#print "Param1"
 	words=get_words(d)
 	return float(len(words))
 
@@ -62,9 +62,9 @@ def get_word_count(d):
 
 
 def get_text_body_ratio(soup):
-	
+
 	#print "Param2"
-	
+
 	headers=[]
 	for i in range(1,7):
 		headers+=soup.findAll("h"+str(i))
@@ -82,13 +82,13 @@ def get_text_body_ratio(soup):
 		words=string_to_words(str(unidecode.unidecode(txt)))
 	#print words
 	return float(len(words))
-	
+
 #--------------------------------------------#
 #------ 3. Emphasized Body Percentage -------#
 #--------------------------------------------#
 
 def get_emph_body_text_percentage(d):
-	
+
 	#print "Param3"
 
 	boldText = d.find_elements_by_tag_name("b")
@@ -99,10 +99,10 @@ def get_emph_body_text_percentage(d):
 	try:
 		txt=str(unidecode.unidecode(d.execute_script("return document.body.innerText")))
 	except:
-		txt=str(unidecode.unidecode(d.execute_script("return document.body.textContent")))	
+		txt=str(unidecode.unidecode(d.execute_script("return document.body.textContent")))
 	pattern = re.compile("!+")
 	exclWordCount=len(re.findall(pattern,txt))
-	
+
 	words=get_words(d)
 	capWordCount=0
 	for i in words:
@@ -110,7 +110,7 @@ def get_emph_body_text_percentage(d):
 			capWordCount+=1
 	#print boldWordCount, exclWordCount, capWordCount
 	return boldWordCount + exclWordCount + capWordCount
-	
+
 
 #--------------------------------------------#
 #----- 4. Text Positional Changes -----------#   //open to improvement
@@ -118,9 +118,9 @@ def get_emph_body_text_percentage(d):
 
 
 def get_text_position_changes(s):
-	
+
 	#print "Param4"
-	
+
 	elem=s.findAll()
 	prev=""
 	textPositionChanges=0
@@ -133,23 +133,23 @@ def get_text_position_changes(s):
 				if position!=prev:
 					textPositionChanges+=1
 					prev=position
-				
-			
+
+
 		except:
 			pass
-	
+
 	return textPositionChanges
 
 
 #--------------------------------------------#
-#----------- 5. Text Clusters ---------------#     //open to improvement 
+#----------- 5. Text Clusters ---------------#     //open to improvement
 #--------------------------------------------#
 
 
 def get_text_clusters(d):
-	
+
 	#print "Param5"
-	
+
 	tableText= d.find_elements_by_tag_name("td")+d.find_elements_by_tag_name("table")
 	paraText = d.find_elements_by_tag_name("p")
 	textClusters=len(tableText)+len(paraText)
@@ -189,7 +189,7 @@ def get_page_size(d):
 		except:
 			pass
 	return float(pageSize)/1024.0
-	
+
 
 #--------------------------------------------#
 #--------- 8. Graphics Percentage -----------#
@@ -219,7 +219,7 @@ def get_graphics_count(d):
 	#print "Param9"
 	styleSteets=d.find_elements_by_tag_name("style")
 	images=d.execute_script("return document.images;")
-	graphicsCount=len(styleSteets)+len(images)  
+	graphicsCount=len(styleSteets)+len(images)
 	return  graphicsCount
 
 
@@ -230,16 +230,16 @@ def get_graphics_count(d):
 
 def get_color_count(d):
 	#print "Param10"
-	d.save_screenshot('screenshot.png') 
+	d.save_screenshot('screenshot.png')
 	img 	 = Image.open('screenshot.png')
-	
+
 	p=img.getdata()
-	total_pix=len(p)	
+	total_pix=len(p)
 	p_list=[i[:-1] for i in p]
 	p_list.sort()
 	temp = [[len(list(group)),key] for key,group in groupby(p_list)]
 	temp.sort()
-	
+
 	#Keeping a threshold on the colors
 	p_freq=[]
 	for i in temp[::-1]:
@@ -282,16 +282,16 @@ def get_font_count(d):
 	italic		= d.find_elements_by_tag_name("i")
 	big		= d.find_elements_by_tag_name("big")
 	strong		= d.find_elements_by_tag_name("big")
-	
+
 	faces		=d.find_elements_by_tag_name("font")
 	fontFaces	=""
 	for face in faces:
 		fontFaces	+=  (str(face).split("face=\"")[-1]).split("\"")[0]+","
 	faceCount 	= len(set(fontFaces.split(",")))-1
-	
+
 	fontCount =len(bold)+len(italic)+len(big)+len(strong)+faceCount
 	return fontCount
-	
+
 
 def main(filename):
 	#binary = FirefoxBinary("/usr/bin/firefox")
@@ -304,10 +304,8 @@ def main(filename):
 	options.add_argument('--no-sandbox')
 	options.add_argument('--disable-gpu')
 	options.add_argument('--remote-debugging-port=9222')
-	#options.binary_location = "/app/.apt/usr/bin/google-chrome"
-	chrome_driver_binary="/home/abhi/git/mysite/venv/bin/chromedriver"
 	driver= webdriver.Chrome(chrome_options=options)
-	driver.implicitly_wait(3)
+	driver.implicitly_wait(1)
 	driver.get(url)
 	WebDriverWait(driver, timeout=10).until(lambda x: x.find_elements_by_tag_name('body'))
 	page_source=driver.page_source
@@ -323,22 +321,22 @@ def main(filename):
 	visibleLinks				= get_visible_links(driver)				#Parameter 6
 	pageSize					= get_page_size(driver)					#Parameter 7
 	graphicsSize				= get_graphics_size(driver)				#Parameter 8
-	graphicsCount 				= get_graphics_count(driver)				#Parameter 9  
+	graphicsCount 				= get_graphics_count(driver)				#Parameter 9
 	colorCount					= 10#get_color_count(driver)				#Parameter 10
 	fontCount					= get_font_count(driver)				#Parameter 11
-	
+
 	driver.quit()
-			
+
 	if pageSize==0:
 		graphicsPercent=0
 	else:
 		graphicsPercent=graphicsSize*100.0/pageSize
-			
-	if wordCount:
+
+	if wordCount==0:
 		print(wordCount,"\n", textBodyRatio/wordCount,"\n", emphText ,"\n", textPositionalChanges,"\n" , textClusters,"\n" , visibleLinks ,"\n", pageSize ,"\n",graphicsPercent,"\n", graphicsCount,"\n", colorCount,"\n", fontCount)
 	else:
 		print(wordCount,"\n 0.0 \n", emphText ,"\n", textPositionalChanges,"\n" , textClusters,"\n" , visibleLinks ,"\n", pageSize ,"\n",graphicsPercent,"\n", graphicsCount,"\n", colorCount,"\n", fontCount)
-			
+
 if __name__=="__main__":
 	url=sys.argv[-1]
-	main(url)	
+	main(url)
