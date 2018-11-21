@@ -1,0 +1,59 @@
+<!-- pageEval-->
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'pageEval/css/bootstrap.css' %}" />
+<style>
+.button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: absolute;
+    top: 350px;
+    left: 580px;
+    height: 60px;
+    width: 200px;
+    text-align:center
+}
+.SearchBar {
+     position: absolute;
+     top: 250px;
+     left: 450px;
+     height: 50px;
+     width: 500px;
+     text-align:center
+}
+.middle{
+	top: 150px;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+.column {
+  flex: 50%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+.body {
+    background: MistyRose ;
+}
+</style>
+
+<table style="width:100%">
+{%for i in webMetrics%}
+	<tr>
+    		<th>paremeter {{forloop.counter}}</th><th>{{i}}</th>
+	</tr>
+{%endfor%}
+</table>
+<a href="{% url 'pageEval:detail'%}">Get Result of another URL</a>
