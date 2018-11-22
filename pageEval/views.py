@@ -7,29 +7,11 @@ import sys
 #from pylab import *
 
 from django.http import HttpResponseRedirect, HttpResponse
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import render
 from django.urls import reverse
 from django.views import generic
 
-def index(request):
-	return render(request, 'pageEval/index.html')
-
-def detail(request):
-	return render(request, 'pageEval/detail.html')
-
-def results(request):
-	return render(request, 'pageEval/results.html',{
-            'error_message': "You didn't select a choice.",
-        })
-
-def metrics(request):
-	url			= request.POST['urlText']
-	command 	= [sys.executable,"/home/abhiavk/git/mysite/pageEval/getUrlMetric.py",url]
-	output		= subprocess.Popen(command, stdout=subprocess.PIPE, stderr = subprocess.STDOUT )
-	webMetrics	= list(map(float,output.communicate()[0].decode("utf-8").split("\n")))
-	#webMetrics	= [i for i in range(11)]
-	if len(webMetrics)!=11:
-		return render(request,'pageEval/error.html',{'webMetrics':webMetrics,})
+def saveImg(webMetrics,request):
 	b18	=[	597.961325966851, 1.20941463305307, 0.263530270897063, 0.519337016574586, 22.2430939226519, 29.5359116022099,\
 			3234.79961045407, 74.9498683548821, 30.8839779005525, 7.97790055248619,	4.19889502762431]
 	eb18=[	1093.00357000861, 13.1064831934754, 0.369497128439535, 4.03813923074724, 37.6512729508433, 41.7942723730434,\
@@ -55,5 +37,27 @@ def metrics(request):
 		ax.yaxis.set_tick_params(labelsize=20)
 		ax.yaxis.grid(True)
 		canvas = FigureCanvasAgg(fig)
-		canvas.print_figure('/home/abhiavk/git/mysite/pageEval/static/pageEval/images/'+str(mno)+'.png', dpi=80)
+		canvas.print_figure(str(mno)+'.png', dpi=80)
+
+def index(request):
+	return render(request, 'pageEval/index.html')
+
+def results(request):
+	return render(request, 'pageEval/results.html',{
+            'error_message': "You didn't select a choice.",
+        })
+def metrics(request):
+	url			= 	request.POST['urlText']
+	command 	= 	[sys.executable,"/home/abhiavk/git/mysite/pageEval/getUrlMetric.py",url]
+	output		=	subprocess.Popen(command, stdout=subprocess.PIPE, stderr = subprocess.STDOUT)
+	#webMetrics	= output.communicate()[0].decode("utf-8").split("\n")
+	metrics		=	output.communicate()[0].decode("utf-8").split("\n")
+	webMetrics	= []
+	for i in metrics:
+		try:
+			webMetrics.append(float(i))
+		except:
+			webMetrics.append(-1)
+	#webMetrics	= [i for i in range(11)]
+	saveImg(webMetrics,request)
 	return render(request,'pageEval/results.html',{'webMetrics':webMetrics,})
