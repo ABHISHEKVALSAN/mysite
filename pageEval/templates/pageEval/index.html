@@ -1,44 +1,50 @@
-<!-- pageEval -->
+<!-- pageEval-->
+
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'pageEval/css/bootstrap.css' %}" />
 <style>
 .button {
     background-color: #4CAF50;
-    border-style: solid;
-    border-width: thin;
+    border: none;
     color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    font-family: inherit;
     margin: 4px 2px;
     cursor: pointer;
-    position: center;
-
-
+    position: absolute;
+    top: 350px;
+    left: 580px;
     height: 60px;
-    width: 400px;
-
+    width: 200px;
+    text-align:center
 }
-h1{
-	top:200px;
-	color: MintyRose;
+.SearchBar {
+     position: absolute;
+     top: 250px;
+     left: 450px;
+     height: 50px;
+     width: 500px;
+     text-align:center
 }
-a{
-	position: center;
+.middle{
+	top: 150px;
 }
-b{
-	font-family: inherit;
-}
-body{
-	background: LightCyan;
+body {
+    background: MistyRose ;
 }
 </style>
-<center>
-	<h1> elcome to Home Page!!!</h1>
-</center>
-<a href="{% url 'pageEval:detail' %}" class="button">
-	<b>GET STARTED</b>
-</a>
+<body>
+<div class="middle">
+<center><h1>Get Metrics of a webpage.</h1></center>
+</div>
+<form action="{% url 'pageEval:metrics' %}" method="post">
+{% csrf_token %}
+<center><h4>Enter URL :</h4></center><br>
+<center><img src="{% static  'pageEval/images/look.png' %}"  height="64" width="64"></center>
+<input type="text" name="urlText" placeholder="http://www.example.com" class="SearchBar" required="True"/><br/>
+<b><input type="submit" class="button" value="Get Metrics!!!"></input></b>
+</form>
+</body>
