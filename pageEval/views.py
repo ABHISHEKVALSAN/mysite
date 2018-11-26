@@ -239,23 +239,22 @@ def main(url):
 	#---------------------------------------------------#
 	#--------- Web Metric Calculation ------------------#
 	#---------------------------------------------------#
-	wordCount				= 	get_word_count(driver)					#Parameter 1
-	textBodyRatio			= 	get_text_body_ratio(soup)					#Parameter 2
-	emphText				= 	get_emph_body_text_percentage(driver)		#Parameter 3
-	textPositionalChanges	= 	get_text_position_changes(soup)			#Parameter 4
-	textClusters			= 	get_text_clusters(driver)					#Parameter 5
-	visibleLinks			= 	get_visible_links(driver)					#Parameter 6
-	pageSize				= 	get_page_size(driver)						#Parameter 7
-	graphicsSize			= 	get_graphics_size(driver)					#Parameter 8
-	graphicsCount 			= 	get_graphics_count(driver)				#Parameter 9
-	colorCount				= 	get_color_count(driver)				#Parameter 10
-	fontCount				= 	get_font_count(driver)					#Parameter 11
+	wordCount				=	get_word_count(driver)					#Parameter 1
+	textBodyRatio			=	get_text_body_ratio(soup)				#Parameter 2
+	emphText				=	get_emph_body_text_percentage(driver)	#Parameter 3
+	textPositionalChanges	=	get_text_position_changes(soup)			#Parameter 4
+	textClusters			=	get_text_clusters(driver)				#Parameter 5
+	visibleLinks			=	get_visible_links(driver)				#Parameter 6
+	pageSize				=	get_page_size(driver)					#Parameter 7
+	graphicsSize			=	get_graphics_size(driver)				#Parameter 8
+	graphicsCount			=	get_graphics_count(driver)				#Parameter 9
+	colorCount				=	get_color_count(driver)					#Parameter 10
+	fontCount				=	get_font_count(driver)					#Parameter 11
 	driver.quit()
 	if pageSize==0:
 		graphicsPercent=0
 	else:
 		graphicsPercent=graphicsSize*100.0/pageSize
-
 	if wordCount!=0:
 		textBodyRatio=textBodyRatio*1.0/wordCount
 		emphTextRatio=emphText/wordCount
@@ -263,7 +262,6 @@ def main(url):
 		textBodyRatio=0.0
 		emphTextRatio=0.0
 	return [wordCount, textBodyRatio, emphTextRatio , textPositionalChanges, textClusters, visibleLinks, pageSize ,graphicsPercent, graphicsCount, colorCount, fontCount]
-    
 def saveImg(webMetrics):
 	b18	=[	597.961325966851, 1.20941463305307, 0.263530270897063, 0.519337016574586, 22.2430939226519, 29.5359116022099,\
 			3234.79961045407, 74.9498683548821, 30.8839779005525, 7.97790055248619,	4.19889502762431]
@@ -291,6 +289,7 @@ def saveImg(webMetrics):
 		ax.yaxis.grid(True)
 		canvas = FigureCanvasAgg(fig)
 		canvas.print_figure('/home/abhiavk/git/mysite/pageEval/ static/pageEval/images/'+str(mno)+'.png', dpi=80)
+#---UrlTransitions---#
 def index(request):
 	return render(request, 'pageEval/index.html')
 def results(request):
