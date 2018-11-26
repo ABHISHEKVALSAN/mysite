@@ -236,9 +236,6 @@ def main(url):
 	WebDriverWait(driver, timeout=10).until(lambda x: x.find_elements_by_tag_name('body'))
 	page_source=driver.page_source
 	soup=BeautifulSoup(page_source,'html.parser')
-	#---------------------------------------------------#
-	#--------- Web Metric Calculation ------------------#
-	#---------------------------------------------------#
 	wordCount				=	get_word_count(driver)					#Parameter 1
 	textBodyRatio			=	get_text_body_ratio(soup)				#Parameter 2
 	emphText				=	get_emph_body_text_percentage(driver)	#Parameter 3
