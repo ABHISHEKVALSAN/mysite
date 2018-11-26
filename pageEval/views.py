@@ -263,6 +263,7 @@ def main(url):
 		textBodyRatio=0.0
 		emphTextRatio=0.0
 	return [wordCount, textBodyRatio, emphTextRatio , textPositionalChanges, textClusters, visibleLinks, pageSize ,graphicsPercent, graphicsCount, colorCount, fontCount]
+    
 def saveImg(webMetrics):
 	b18	=[	597.961325966851, 1.20941463305307, 0.263530270897063, 0.519337016574586, 22.2430939226519, 29.5359116022099,\
 			3234.79961045407, 74.9498683548821, 30.8839779005525, 7.97790055248619,	4.19889502762431]
@@ -289,7 +290,7 @@ def saveImg(webMetrics):
 		ax.yaxis.set_tick_params(labelsize=20)
 		ax.yaxis.grid(True)
 		canvas = FigureCanvasAgg(fig)
-		canvas.print_figure('/home/abhiavk/git/mysite/pageEval/static/pageEval/images/'+str(mno)+'.png', dpi=80)
+		canvas.print_figure('/home/abhiavk/git/mysite/pageEval/ static/pageEval/images/'+str(mno)+'.png', dpi=80)
 def index(request):
 	return render(request, 'pageEval/index.html')
 def results(request):
