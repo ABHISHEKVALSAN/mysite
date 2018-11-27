@@ -285,7 +285,7 @@ def saveImg(webMetrics):
 		ax.yaxis.set_tick_params(labelsize=20)
 		ax.yaxis.grid(True)
 		canvas = FigureCanvasAgg(fig)
-		canvas.print_figure('/home/abhiavk/git/mysite/pageEval/ static/pageEval/images/'+str(mno)+'.png', dpi=80)
+		canvas.print_figure('/home/abhiavk/git/mysite/static/pageEval/images/'+str(mno)+'.png', dpi=80)
 #---UrlTransitions---#
 def index(request):
 	return render(request, 'pageEval/index.html')
