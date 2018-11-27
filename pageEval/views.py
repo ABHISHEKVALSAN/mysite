@@ -170,9 +170,8 @@ def get_graphics_count(d):
 	graphicsCount=len(styleSteets)+len(images)
 	return  graphicsCount
 def get_color_count(d):
-	d.save_screenshot('/home/abhiavk/git/mysite/pageEval/static/pageEval/images/screenshot.png')
-	img 	 = Image.open('/home/abhiavk/git/mysite/pageEval/static/pageEval/images/screenshot.png')
-
+	d.save_screenshot('/home/abhiavk/git/mysite/static/pageEval/images/screenshot.png')
+	img 	 = Image.open('/home/abhiavk/git/mysite/static/pageEval/images/screenshot.png')
 	p=img.getdata()
 	total_pix=len(p)
 	p_list=[i[:-1] for i in p]
@@ -227,11 +226,8 @@ def get_font_count(d):
 def main(url):
 	options = Options()
 	options.add_argument("--headless")
-	options.add_argument('--no-sandbox')
-	options.add_argument('--disable-gpu')
-	options.add_argument('--remote-debugging-port=9222')
 	driver= webdriver.Chrome(chrome_options=options)
-	driver.implicitly_wait(1)
+	driver.set_window_size(1024,768)
 	driver.get(url)
 	WebDriverWait(driver, timeout=10).until(lambda x: x.find_elements_by_tag_name('body'))
 	page_source=driver.page_source

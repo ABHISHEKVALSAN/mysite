@@ -21,34 +21,55 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver import FirefoxOptions
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from selenium.webdriver.support.ui import WebDriverWait
-def saveImg(webMetrics):
-	b18	=[	597.961325966851, 1.20941463305307, 0.263530270897063, 0.519337016574586, 22.2430939226519, 29.5359116022099,\
-			3234.79961045407, 74.9498683548821, 30.8839779005525, 7.97790055248619,	4.19889502762431]
-	eb18=[	1093.00357000861, 13.1064831934754, 0.369497128439535, 4.03813923074724, 37.6512729508433, 41.7942723730434,\
-			6608.11853235636, 26.6774076382953, 50.2731739563354, 4.13784136034583, 12.6180734088065]
-	metricsName=["Word Count","Body Text Ratio","Emphasized Text","Text Positional Changes","Text Clusters","Visible Links","Page Size (kb)","Graphics Percent","Graphics Count","Color Count","Font Count"]
-	ewebMetrics=[0 for i in range(11)]
-	xlabels = ['Your Url', 'BEST OF 2018']
-	x_pos = np.arange(len(xlabels))
+def closest_colour(requested_colour):
+    min_colours = {}
+    for key, name in webcolors.css3_hex_to_names.items():
+        r_c, g_c, b_c = webcolors.hex_to_rgb(key)
+        rd = (r_c - requested_colour[0]) ** 2
+        gd = (g_c - requested_colour[1]) ** 2
+        bd = (b_c - requested_colour[2]) ** 2
+        min_colours[(rd + gd + bd)] = name
+    return min_colours[min(min_colours.keys())]
+def colour_name(requested_colour):
+    try:
+        closest_name = webcolors.rgb_to_name(requested_colour)
+    except ValueError:
+        closest_name = closest_colour(requested_colour)
+    return closest_name
+def get_color_count():
+	img 	 = Image.open('/home/abhiavk/git/mysite/static/pageEval/images/screenshot.png')
+	p=img.getdata()
+	total_pix=len(p)
+	p_list=[i[:-1] for i in p]
+	p_list.sort()
+	temp = [[len(list(group)),key] for key,group in groupby(p_list)]
+	temp.sort()
 
-	for mno in range(11):
-		col='red'
-		if mno in set([1,4,6,9,10]):
-			col='blue'
-		CTEs	= [webMetrics[mno],b18[mno]]
-		error 	= [[0,0],[ewebMetrics[mno],eb18[mno]]]
-		fig 	= Figure(figsize=(8,8))
-		ax 		= fig.add_subplot(111)
-		lprop = {'fontsize':20,'weight':'bold'}
-		ax.bar(x_pos, CTEs, yerr=error, align='center', color=col,alpha=0.5, ecolor='black', capsize=20)
-		ax.set_xticks(x_pos)
-		ax.set_title(metricsName[mno],fontdict=lprop)
-		ax.set_xticklabels(xlabels,fontdict=lprop)
-		ax.yaxis.set_tick_params(labelsize=20)
-		ax.yaxis.grid(True)
-		canvas = FigureCanvasAgg(fig)
-		canvas.print_figure('/home/abhiavk/git/mysite/static/pageEval/images/'+str(mno)+'.png', dpi=80)
+	#Keeping a threshold on the colors
+	p_freq=[]
+	for i in temp[::-1]:
+		if i[0]>1:
+			p_freq.append(i)
+		else:
+			break
 
-import views
-webMetrics=[i for i in range(11)]
-saveImg(webMetrics)
+	p_color = [[colour_name(p_freq[i][1]),p_freq[i][0]] for i in range(len(p_freq))]
+	p_color.sort()
+	p_color_uni=[p_color[0]]
+	for i in p_color[1:]:
+		if p_color_uni[-1][0]==i[0]:
+			p_color_uni[-1][1]+=i[1]
+		else:
+			p_color_uni.append(i)
+	total_color_pix=0
+	for i in p_color_uni:
+		total_color_pix+=i[1]
+
+	c_count=0
+	for i in range(len(p_color_uni)):
+		if float(p_color_uni[i][1])/total_color_pix>0.01:
+			#print p_color_uni[i]
+			c_count+=1
+
+	return c_count
+print(get_color_count())
