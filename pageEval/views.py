@@ -266,22 +266,21 @@ def saveImg(webMetrics):
 			6608.11853235636, 26.6774076382953, 50.2731739563354, 4.13784136034583, 12.6180734088065]
 	metricsName=["Word Count","Body Text Ratio","Emphasized Text","Text Positional Changes","Text Clusters","Visible Links","Page Size (kb)","Graphics Percent","Graphics Count","Color Count","Font Count"]
 	ewebMetrics=[0 for i in range(11)]
-	Country = ['Your Url', 'BEST OF 2018']
-	x_pos = np.arange(len(Country))
-
+	xlabels = ['Your Url', 'BEST OF 2018']
+	x_pos = np.arange(len(xlabels))
 	for mno in range(11):
 		col='red'
-		if mno in [1,4,6,9,10]:
+		if mno in set([1,4,6,9,10]):
 			col='blue'
 		CTEs	= [webMetrics[mno],b18[mno]]
-		error 	= [[min(webMetrics[mno],ewebMetrics[mno]),min(b18[mno],eb18[mno])],[ewebMetrics[mno],eb18[mno]]]
+		error 	= [[0,0],[ewebMetrics[mno],eb18[mno]]]
 		fig 	= Figure(figsize=(8,8))
 		ax 		= fig.add_subplot(111)
 		lprop = {'fontsize':20,'weight':'bold'}
 		ax.bar(x_pos, CTEs, yerr=error, align='center', color=col,alpha=0.5, ecolor='black', capsize=20)
 		ax.set_xticks(x_pos)
 		ax.set_title(metricsName[mno],fontdict=lprop)
-		ax.set_xticklabels(Country,fontdict=lprop)
+		ax.set_xticklabels(xlabels,fontdict=lprop)
 		ax.yaxis.set_tick_params(labelsize=20)
 		ax.yaxis.grid(True)
 		canvas = FigureCanvasAgg(fig)
