@@ -1,7 +1,6 @@
 <!-- pollSite -->
 {% load static %}
-
-<link rel="stylesheet" type="text/css" href="{% static 'polls/css/bootstrap.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'pollSite/css/bootstrap.css' %}" />
 <style>
 li a {
     color: green;
@@ -9,7 +8,6 @@ li a {
 </style>
 <ul>
     {% for question in question_list %}
-        <!-- <li><a href="/pollSite/detail/{{ question.id }}/">{{ question.question_text }}</a></li> -->
-	<li><a href="{% url 'pollSite:detail' question.id %}">{{ question.question_text }}</a></li>
-    {% endfor %}
+				<li><a href="{% url 'pollSite:detail' question.id %}">{{ question.question_text }}</a></li>
+		{% endfor %}
 </ul>

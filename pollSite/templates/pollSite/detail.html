@@ -1,14 +1,13 @@
 <!-- pollSite -->
-
-<iframe width="1500" height="650" src="{{ object.question_text}}" ></iframe>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'pollSite/css/bootstrap.css' %}" />
+<iframe width="1500" height="650" src="{{ object.question_text}}" frameborder="0" allowfullscreen></iframe>
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-
 <form action="{% url 'pollSite:vote' question_id=object.id %}" method="post">
 {% csrf_token %}
 {% for choice in object.choice_set.all %}
-    <input type="radio" name="choice" id="choice{{ forloop.counter }}"    value="{{ choice.id }}" />
-    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}   </label><br />
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" required="True"/>
+    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }} </label><br />
 {% endfor %}
 <input type="submit" value="vote" />
 </form>
-
