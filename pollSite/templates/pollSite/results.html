@@ -1,5 +1,10 @@
-<!-- pollSite-->
 {% load static %}
+<html>
+<head>
+<title>Result</title>
+<link rel="stylesheet" type="text/css" href="{% static 'pollSite/css/bootstrap.css' %}" />
+<head>
+<body>
 <h1>{{ object.question_text }}</h1>
 <ul>
 {% for choice in object.choice_set.all %}
@@ -7,3 +12,5 @@
 {% endfor %}
 </ul>
 <a href="{% url 'pollSite:detail' object.id %}">Vote again?</a>
+</body>
+<html>
