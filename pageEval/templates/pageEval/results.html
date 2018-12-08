@@ -1,79 +1,48 @@
 <!-- pageEval-->
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'pageEval/css/bootstrap.css' %}" />
-<style>
-.button {
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    position: absolute;
-    top: 350px;
-    left: 580px;
-    height: 60px;
-    width: 200px;
-    text-align:center
-}
-.SearchBar {
-     position: absolute;
-     top: 250px;
-     left: 450px;
-     height: 50px;
-     width: 500px;
-     text-align:center
-}
-.middle{
-	top: 150px;
-}
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 4px;
-}
-.column {
-  flex: 50%;
-  padding: 0 4px;
-}
-
-.column img {
-	flex: 30%;
-  	margin-top: 8px;
-  	vertical-align: middle;
-}
-.body {
-    background: MistyRose ;
-}
-</style>
-
-<h2>{%static 'pageEval'%}</h2>
-<div class="row">
-  <div class="column">
-    <img src="{% static  'pageEval/images/0.png' %}">
-		<img src="{% static  'pageEval/images/1.png' %}">
-    <img src="{% static  'pageEval/images/2.png' %}">
-    <img src="{% static  'pageEval/images/3.png' %}">
-    <img src="{% static  'pageEval/images/4.png' %}">
-    <img src="{% static  'pageEval/images/5.png' %}">
-    <img src="{% static  'pageEval/images/6.png' %}">
-    <img src="{% static  'pageEval/images/7.png' %}">
-    <img src="{% static  'pageEval/images/8.png' %}">
-    <img src="{% static  'pageEval/images/9.png' %}">
-    <img src="{% static  'pageEval/images/10.png' %}">
-  </div>
-</div>
-
-<!--
-<table style="width:100%">
-{%for i in webMetrics%}
-	<tr>
-    		<th>paremeter {{forloop.counter}}</th><th>{{i}}</th>
-	</tr>
-{%endfor%}
-</table>
--->
-<a href="{% url 'pageEval:index'%}">Get Result of another URL</a>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Results</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'pageEval/css/bootstrap.css' %}" />
+		<style>
+			body{
+				background:yellow;
+			}
+				.row {
+  				display: flex;
+  				flex-wrap: wrap;
+  				padding: 0 4px;
+					align:midlle;
+				}
+				.metric-images{
+					flex: 100%
+  				padding: 0 4px;
+					horizontal-align:middle;
+				}
+				.metric-images img {
+  				margin-top: 8px;
+  				vertical-align: middle;
+				}
+		</style>
+	</head>
+	<body>
+		<div class="row">
+			<div class="metric-images">
+				<img src="{% static  'pageEval/images/0.png' %}">
+				<img src="{% static  'pageEval/images/1.png' %}">
+				<img src="{% static  'pageEval/images/2.png' %}">
+				<img src="{% static  'pageEval/images/3.png' %}">
+				<img src="{% static  'pageEval/images/4.png' %}">
+				<img src="{% static  'pageEval/images/5.png' %}">
+				<img src="{% static  'pageEval/images/6.png' %}">
+				<img src="{% static  'pageEval/images/7.png' %}">
+				<img src="{% static  'pageEval/images/8.png' %}">
+				<img src="{% static  'pageEval/images/9.png' %}">
+				<img src="{% static  'pageEval/images/10.png' %}">
+			</div>
+		</div>
+		<a href="{% url 'pageEval:index'%}">Get Result of another URL</a>
+	</body>
+</html>
