@@ -11,10 +11,8 @@ body {
 </style>
 </head>
 <body>
-
 <iframe width="1500" height="650" src="{{ object.question_text}}" frameborder="0" allowfullscreen></iframe>
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-<form action="{% url 'pollSite:vote' question_id=object.id %}" method="post">
+<form action="{% url 'pollSite:vote' object.id %}" method="post">
 {% csrf_token %}
 {% for choice in object.choice_set.all %}
     <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" required="True"/>
