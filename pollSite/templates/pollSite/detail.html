@@ -82,7 +82,6 @@
   cursor: pointer;
   visibility: hidden;
 }
-
 .form {
   padding: 0 16px;
   max-width: 550px;
@@ -91,42 +90,37 @@
   font-weight: 600;
   line-height: 36px;
 }
-
 body {
   background-color: #D1D7DC;
   font-family: 'Fira Sans', sans-serif;
 }
-
 *,
 *::before,
 *::after {
   box-sizing: inherit;
 }
-
 html {
   box-sizing: border-box;
 }
-
 code {
   background-color: #9AA3AC;
   padding: 0 8px;
 }
-
 </style>
 </head>
 <body>
 <div style="width:100%;">
 	<div style="float:left; width: 80%">
-		<iframe width="1400" height="700" src="{{ object.question_text}}" frameborder="0" allowfullscreen></iframe>
+		<iframe width="1400" height="700" src="{{ object.urlText}}" frameborder="0" allowfullscreen></iframe>
 	</div>
 	<div style="float:left;">
 		<form   action="{% url 'pollSite:vote' object.id %}" method="post">
   	<h2>Rate this website.</h2>
 		{% csrf_token %}
-		{% for choice in object.choice_set.all %}
+		{% for rating in "7654321"%}
   		<div class="inputGroup">
-    		<input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" required="True"/>
-    		<label for="choice{{ forloop.counter }}">{{choice.choice_text}}</label>
+    		<input type="radio" name="choice" id="rate{{rating}}" value="{{ rating }}" required="True"/>
+    		<label for="rate{{rating}}">{{ rating }}</label>
   		</div>
 		{% endfor %}
 		<input type="submit" value="vote" />

@@ -15,24 +15,40 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Choice',
+            name='Person',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('choice_text', models.CharField(max_length=200)),
-                ('votes', models.IntegerField(default=0)),
+                ('name', models.CharField(max_length=200)),
+                ('age', models.IntegerField(default=0)),
+				('sex', models.IntegerField(default=0)),
+				('education', models.IntegerField(default=0)),
+
             ],
         ),
         migrations.CreateModel(
-            name='PageUrl',
+            name='siteUrl',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('question_text', models.CharField(max_length=500)),
-                ('pub_date', models.DateTimeField(verbose_name='date published')),
+                ('urlText', models.CharField(max_length=500)),
+
             ],
         ),
-        migrations.AddField(
-            model_name='Choice',
-            name='question',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='pollSite.PageUrl'),
+		migrations.CreateModel(
+            name='Entries',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+				('rating',models.IntegerField(default=0)),
+				('ratedTime', models.DateTimeField(verbose_name='Rated Time')),
+            ],
         ),
+		migrations.AddField(
+            model_name	=	'Entries',
+            name		=	'personId',
+            field		=	models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='pollSite.Person'),
+		),
+		migrations.AddField(
+            model_name	=	'Entries',
+            name		=	'urlId',
+            field		=	models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='pollSite.siteUrl'),
+		),
     ]

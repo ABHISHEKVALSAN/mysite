@@ -1,13 +1,11 @@
-<!-- pollSite -->
 {% load static %}
 <html>
-<head>
-<title> Introduction</title>
-<link rel="stylesheet" type="text/css" href="{% static 'pollSite/css/bootstrap.css' %}" rel="stylesheet" id="bootstrap-css">
-<script src="{% static  'pollSite/js/bootstrap.min.js' %}"></script>
-<script src="{% static 'pollSite/js/bootstrap.js' %}"></script>
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-<style media="screen">
+	<head>
+		<title> Introduction</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'pollSite/css/bootstrap.css' %}" rel="stylesheet" id="bootstrap-css">
+		<script src="{% static  'pollSite/js/bootstrap.min.js' %}"></script>
+		<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<style media="screen">
 	/* General Style */
 	@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,700);
 	@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
@@ -730,26 +728,98 @@
 	        transform: rotate(0deg);
 	    }
 	}
+	.form-style-8{
+		font-family: 'Open Sans Condensed', arial, sans;
+		width: 500px;
+		padding: 30px;
+		background: #FFFFFF;
+		margin: 50px auto;
+		box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+		-moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+		-webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+	}
+	.form-style-8 h2{
+		background: #4D4D4D;
+		text-transform: uppercase;
+		font-family: 'Open Sans Condensed', sans-serif;
+		color: #797979;
+		font-size: 18px;
+		font-weight: 100;
+		padding: 20px;
+		margin: -30px -30px 30px -30px;
+	}
+	.form-style-8 input[type="text"],
+	.form-style-8 input[type="date"],
+	.form-style-8 input[type="datetime"],
+	.form-style-8 input[type="email"],
+	.form-style-8 input[type="number"],
+	.form-style-8 input[type="search"],
+	.form-style-8 input[type="time"],
+	.form-style-8 input[type="url"],
+	.form-style-8 input[type="password"],
+	.form-style-8 textarea,
+	.form-style-8 select{
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		outline: none;
+		display: block;
+		width: 100%;
+		padding: 7px;
+		border: none;
+		border-bottom: 1px solid #ddd;
+		background: transparent;
+		margin-bottom: 10px;
+		font: 16px Arial, Helvetica, sans-serif;
+		height: 45px;}
+	.form-style-8 textarea{
+		resize:none;
+		overflow: hidden;
+	}
+	.form-style-8 input[type="button"],
+	.form-style-8 input[type="submit"]{
+		-moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+		-webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+		box-shadow: inset 0px 1px 0px 0px #45D6D6;
+		background-color: #2CBBBB;
+		border: 1px solid #27A0A0;
+		display: inline-block;
+		cursor: pointer;
+		color: #FFFFFF;
+		font-family: 'Open Sans Condensed', sans-serif;
+		font-size: 14px;
+		padding: 8px 18px;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+	.form-style-8 input[type="button"]:hover,
+	.form-style-8 input[type="submit"]:hover {
+		background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+		background-color:#34CACA;
+	}
 </style>
-</head>
-<body>
-<div class="container">
-<div class="jumbotron text-xs-center">
-<center>
-<h1>Hello there!!!</h1>
-</center>
-</div>
-<h3>
-Instruction to do the survey!!!
-</h3>
-<section class="color-pattern-5" style="width:40%;">
-  <div>
-		<a href="{% url 'pollSite:register' %}">
-    <button class="button button-4 button-4c icon-arrow-right"><i class="fa fa-arrow-right"></i>Start</button>
-		</a>
-	</div>
-</section>
-</div>
-<!-- /container -->
-</body>
+	</head>
+	<body>
+		<div class="container">
+			<div class="jumbotron text-xs-center">
+				<center>
+					<h1>Hello there!!!</h1>
+				</center>
+			</div>
+			<h3>
+				get your details!!!
+			</h3>
+				<div class="form-style-8">
+  				<h2>Enter your details</h2>
+  					<form action=="{% url 'pollSite:newPerson' %}" method="post">
+							{% csrf_token %}
+    					<input type="text" name="field1" placeholder="Full Name" />
+    					<input type="text" name="field2" placeholder="Email" />
+    					<input type="text" name="field3" placeholder="Website" />
+    					<textarea placeholder="Message" onkeyup="adjust_textarea(this)"></textarea>
+    					<input type="submit" value="Submit" />
+  					</form>
+				</div>
+		</div>
+	</body>
 </html>
