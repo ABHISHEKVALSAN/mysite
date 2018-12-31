@@ -5,6 +5,9 @@
 <title> Site </title>
 <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
 <style media="screen">
+.my_iframe {
+	margin: 0 auto;
+	border: 10px double #808000 ;}
 .inputGroup {
   background-color: #fff;
   display: block;
@@ -91,7 +94,7 @@
   line-height: 36px;
 }
 body {
-  background-color: #D1D7DC;
+  background-color: #EEE8AA;
   font-family: 'Fira Sans', sans-serif;
 }
 *,
@@ -111,10 +114,10 @@ code {
 <body>
 <div style="width:100%;">
 	<div style="float:left; width: 80%">
-		<iframe width="1400" height="700" src="{{ object.urlText}}" frameborder="0" allowfullscreen></iframe>
+		<iframe class="my_iframe" width="1400" height="700" src="{{ site.urlText}}" frameborder="0" allowfullscreen></iframe>
 	</div>
 	<div style="float:left;">
-		<form   action="{% url 'pollSite:vote' object.id %}" method="post">
+		<form   action="{% url 'pollSite:vote' site.id person.id %}" method="post">
   	<h2>Rate this website.</h2>
 		{% csrf_token %}
 		{% for rating in "7654321"%}

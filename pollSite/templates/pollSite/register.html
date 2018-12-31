@@ -813,10 +813,10 @@
   				<h2>Enter your details</h2>
   					<form action=="{% url 'pollSite:newPerson' %}" method="post">
 							{% csrf_token %}
-    					<input type="text" name="field1" placeholder="Full Name" />
-    					<input type="text" name="field2" placeholder="Email" />
-    					<input type="text" name="field3" placeholder="Website" />
-    					<textarea placeholder="Message" onkeyup="adjust_textarea(this)"></textarea>
+    					<input type="text" name="Name" placeholder="Full Name" />
+    					<input type="text" name="age" placeholder="age" />
+    					<input type="text" name="sex" placeholder="sex" />
+    					<inpur type="text" name="education" placeholder="education" onkeyup="adjust_textarea(this)"></textarea>
     					<input type="submit" value="Submit" />
   					</form>
 				</div>

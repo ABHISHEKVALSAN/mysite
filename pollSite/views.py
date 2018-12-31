@@ -6,6 +6,7 @@ from django.views import generic
 from .models import Entries, Person, siteUrl
 
 import random
+import datetime
 """
 class IndexView(generic.ListView):
     template_name = 'pollSite/index.html'
@@ -26,9 +27,10 @@ def index(request):
 def register(request):
 	args		=	{}
 	return render(request,'pollSite/register.html',args)
-def detail(request,pk):
-	siteObj		=	get_object_or_404(siteUrl, pk=pk)
-	args		=	{'object':siteObj}
+def detail(request,pk1,pk2):
+	siteObj		=	get_object_or_404(siteUrl, pk=pk1)
+	PersonObj	=	get_object_or_404(Person, pk=pk2)
+	args		=	{'site':siteObj,'person':PersonObj}
 	return render(request,'pollSite/detail.html',args)
 def results(request,pk):
 	siteObj		=	get_object_or_404(siteUrl, pk=pk)
@@ -37,40 +39,46 @@ def results(request,pk):
 def thanks(request):
 	args		=	{}
 	return render(request,'pollSite/thanks.html',args)
-def vote(request, siteId):
+def vote(request, siteId, PersonId):
 	global num
-	siteObj = get_object_or_404(siteUrl, pk=siteId)
-	try:
-	 	userRating = request.POST['choice']
-	except (KeyError, siteUrl.DoesNotExist):
-		return render(request, 'pollSite/detail.html', {
-		'object': siteObj,
-			'error_message': "You didn't select a choice.",
-			})
-	else:
-		if userRating=="7":
-			siteObj.rate7+=1
-		elif userRating=="6":
-			siteObj.rate6+=1
-		elif userRating=="5":
-			siteObj.rate5+=1
-		elif userRating=="4":
-			siteObj.rate4+=1
-		elif userRating=="3":
-			siteObj.rate3+=1
-		elif userRating=="2":
-			siteObj.rate2+=1
-		elif userRating=="1":
-			siteObj.rate1+=1
-		siteObj.save()
-		nextSite	=	random.choice(list(siteUrl.objects.order_by('id')))
-		if num==5:
-			num=0
-			args={}
-			return HttpResponseRedirect(reverse('pollSite:thanks'))
-		num+=1
-		return HttpResponseRedirect(reverse('pollSite:detail', args=(nextSite.id,)))
+	siteObj		=	get_object_or_404(siteUrl, pk=siteId)
+	PersonObj	=	get_object_or_404(Person, pk=PersonId)
+	userRating	= request.POST['choice']
+	if userRating=="7":
+		siteObj.rate7+=1
+		newEntry	=	Entries.objects.create(personId=PersonObj,urlId=siteObj,rating=7)
+	elif userRating=="6":
+		siteObj.rate6+=1
+		newEntry	=	Entries.objects.create(personId=PersonObj,urlId=siteObj,rating=6)
+	elif userRating=="5":
+		siteObj.rate5+=1
+		newEntry	=	Entries.objects.create(personId=PersonObj,urlId=siteObj,rating=5)
+	elif userRating=="4":
+		siteObj.rate4+=1
+		newEntry	=	Entries.objects.create(personId=PersonObj,urlId=siteObj,rating=4)
+	elif userRating=="3":
+		siteObj.rate3+=1
+		newEntry	=	Entries.objects.create(personId=PersonObj,urlId=siteObj,rating=3)
+	elif userRating=="2":
+		siteObj.rate2+=1
+		newEntry	=	Entries.objects.create(personId=PersonObj,urlId=siteObj,rating=2)
+	elif userRating=="1":
+		siteObj.rate1+=1
+		newEntry	=	Entries.objects.create(personId=PersonObj,urlId=siteObj,rating=1)
+	siteObj.save()
+	nextSite	=	random.choice(list(siteUrl.objects.order_by('id')))
+	if num==5:
+		num=0
+		args={}
+		return HttpResponseRedirect(reverse('pollSite:thanks'))
+	num+=1
+	return HttpResponseRedirect(reverse('pollSite:detail', args=(nextSite.id,PersonObj.id)))
 
 def newPerson(request):
+	Name		=	request.POST['Name']
+	age			=	24
+	sex			=	1
+	education	=	4
+	PersonObj	=	Person.objects.create(name=Name,age=age,sex=sex,education=education)
 	nextSite	=	random.choice(list(siteUrl.objects.order_by('id')))
-	return HttpResponseRedirect(reverse('pollSite:detail', args=(nextSite.id,)))
+	return HttpResponseRedirect(reverse('pollSite:detail', args=(nextSite.id,PersonObj.id)))

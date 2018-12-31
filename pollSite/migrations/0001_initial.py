@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Person',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=True, verbose_name='ID')),
                 ('name', models.CharField(max_length=200)),
                 ('age', models.IntegerField(default=0)),
 				('sex', models.IntegerField(default=0)),
@@ -38,7 +38,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
 				('rating',models.IntegerField(default=0)),
-				('ratedTime', models.DateTimeField(verbose_name='Rated Time')),
+				('ratedTime', models.DateTimeField(auto_now=True)),
             ],
         ),
 		migrations.AddField(

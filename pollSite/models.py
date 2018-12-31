@@ -27,3 +27,4 @@ class Entries(models.Model):
 	personId		=	models.ForeignKey(Person, on_delete=models.CASCADE)
 	urlId			=	models.ForeignKey(siteUrl, on_delete=models.CASCADE)
 	rating			=	models.IntegerField(default=0)
+	
