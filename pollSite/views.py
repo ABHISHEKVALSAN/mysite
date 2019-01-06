@@ -73,7 +73,6 @@ def vote(request, siteId, PersonId):
 		return HttpResponseRedirect(reverse('pollSite:thanks'))
 	num+=1
 	return HttpResponseRedirect(reverse('pollSite:detail', args=(nextSite.id,PersonObj.id)))
-
 def newPerson(request):
 	Name		=	request.POST['Name']
 	age			=	24
