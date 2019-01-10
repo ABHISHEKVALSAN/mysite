@@ -30,7 +30,6 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('urlText', models.CharField(max_length=500)),
-
             ],
         ),
 		migrations.CreateModel(
@@ -50,5 +49,10 @@ class Migration(migrations.Migration):
             model_name	=	'Entries',
             name		=	'urlId',
             field		=	models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='pollSite.siteUrl'),
+		),
+		migrations.AddField(
+            model_name	=	'siteUrl',
+            name		=	'rateCount',
+            field		=	models.IntegerField(default=0),
 		),
     ]

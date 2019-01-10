@@ -67,7 +67,7 @@ def vote(request, siteId, PersonId):
 		newEntry	=	Entries.objects.create(personId=PersonObj,urlId=siteObj,rating=1)
 	siteObj.save()
 	nextSite	=	random.choice(list(siteUrl.objects.order_by('id')))
-	if num==5:
+	if num==19:
 		num=0
 		args={}
 		return HttpResponseRedirect(reverse('pollSite:thanks'))
