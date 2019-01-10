@@ -2,7 +2,7 @@ from pollSite.models import Entries
 import csv
 csvFile		= open('entries.csv','w')
 writer		= csv.writer(csvFile)
-writer.writerow(['entryId','personId','siteId','rating'])
+writer.writerow(['id','personId','siteId','rating'])
 for obj in Entries.objects.all():
 	a=obj.id
 	b=obj.personId.id

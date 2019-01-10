@@ -43,28 +43,22 @@ def vote(request, siteId, PersonId):
 	global num
 	siteObj		=	get_object_or_404(siteUrl, pk=siteId)
 	PersonObj	=	get_object_or_404(Person, pk=PersonId)
-	userRating	= request.POST['choice']
+	userRating	= 	request.POST['choice']
+	newEntry	=	Entries.objects.create(personId=PersonObj,urlId=siteObj,rating=int(userRating))
 	if userRating=="7":
 		siteObj.rate7+=1
-		newEntry	=	Entries.objects.create(personId=PersonObj,urlId=siteObj,rating=7)
 	elif userRating=="6":
 		siteObj.rate6+=1
-		newEntry	=	Entries.objects.create(personId=PersonObj,urlId=siteObj,rating=6)
 	elif userRating=="5":
 		siteObj.rate5+=1
-		newEntry	=	Entries.objects.create(personId=PersonObj,urlId=siteObj,rating=5)
 	elif userRating=="4":
 		siteObj.rate4+=1
-		newEntry	=	Entries.objects.create(personId=PersonObj,urlId=siteObj,rating=4)
 	elif userRating=="3":
 		siteObj.rate3+=1
-		newEntry	=	Entries.objects.create(personId=PersonObj,urlId=siteObj,rating=3)
 	elif userRating=="2":
 		siteObj.rate2+=1
-		newEntry	=	Entries.objects.create(personId=PersonObj,urlId=siteObj,rating=2)
 	elif userRating=="1":
 		siteObj.rate1+=1
-		newEntry	=	Entries.objects.create(personId=PersonObj,urlId=siteObj,rating=1)
 	siteObj.save()
 	nextSite	=	random.choice(list(siteUrl.objects.order_by('id')))
 	if num==19:
@@ -75,9 +69,9 @@ def vote(request, siteId, PersonId):
 	return HttpResponseRedirect(reverse('pollSite:detail', args=(nextSite.id,PersonObj.id)))
 def newPerson(request):
 	Name		=	request.POST['Name']
-	age			=	24
-	sex			=	1
-	education	=	4
-	PersonObj	=	Person.objects.create(name=Name,age=age,sex=sex,education=education)
+	age			=	request.POST['age']
+	sex			=	request.POST['gender']
+	education	=	request.POST['education']
+	PersonObj	=	Person.objects.create(name=Name,age=int(age),sex=int(sex),education=int(education))
 	nextSite	=	random.choice(list(siteUrl.objects.order_by('id')))
 	return HttpResponseRedirect(reverse('pollSite:detail', args=(nextSite.id,PersonObj.id)))

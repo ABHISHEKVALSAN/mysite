@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Person',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=True, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=200)),
                 ('age', models.IntegerField(default=0)),
 				('sex', models.IntegerField(default=0)),
@@ -30,6 +30,13 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('urlText', models.CharField(max_length=500)),
+				('rate7',models.IntegerField(default=0)),
+				('rate6',models.IntegerField(default=0)),
+				('rate5',models.IntegerField(default=0)),
+				('rate4',models.IntegerField(default=0)),
+				('rate3',models.IntegerField(default=0)),
+				('rate2',models.IntegerField(default=0)),
+				('rate1',models.IntegerField(default=0)),
             ],
         ),
 		migrations.CreateModel(
@@ -37,7 +44,6 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
 				('rating',models.IntegerField(default=0)),
-				('ratedTime', models.DateTimeField(auto_now=True)),
             ],
         ),
 		migrations.AddField(
@@ -49,10 +55,5 @@ class Migration(migrations.Migration):
             model_name	=	'Entries',
             name		=	'urlId',
             field		=	models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='pollSite.siteUrl'),
-		),
-		migrations.AddField(
-            model_name	=	'siteUrl',
-            name		=	'rateCount',
-            field		=	models.IntegerField(default=0),
 		),
     ]

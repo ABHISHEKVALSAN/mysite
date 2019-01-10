@@ -8,7 +8,6 @@ from django.db import models
 
 class siteUrl(models.Model):
 	urlText			=	models.CharField(max_length=500)
-	pub_date		=	models.DateTimeField('date published')
 	rate7			=	models.IntegerField(default=0)
 	rate6			=	models.IntegerField(default=0)
 	rate5			=	models.IntegerField(default=0)
