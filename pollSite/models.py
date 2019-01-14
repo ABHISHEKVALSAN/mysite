@@ -15,6 +15,8 @@ class siteUrl(models.Model):
 	rate3			=	models.IntegerField(default=0)
 	rate2			=	models.IntegerField(default=0)
 	rate1			=	models.IntegerField(default=0)
+	rateCount		=	models.IntegerField(default=0)
+	rating			=	models.FloatField(default=0.0)
 
 class Person(models.Model):
 	name			=	models.CharField(max_length=200)

@@ -20,4 +20,7 @@ for obj in siteUrl.objects.all():
 		rating=0.0
 	print(siteId,rateCount,round(rating,2))
 	writer.writerow([siteId,rateCount,rating])
+	obj.rateCount	= rateCount
+	obj.rating		= rating
+	obj.save()
 csvFile.close()

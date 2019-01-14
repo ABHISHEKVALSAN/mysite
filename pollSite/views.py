@@ -21,6 +21,7 @@ class ResultsView(generic.DetailView):
     template_name = 'pollSite/results.html'
 """
 num=0
+nextSite=[]
 def index(request):
 	args={}
 	return render(request,'pollSite/index.html',args)
@@ -41,37 +42,51 @@ def thanks(request):
 	return render(request,'pollSite/thanks.html',args)
 def vote(request, siteId, PersonId):
 	global num
+	global nextSite
 	siteObj		=	get_object_or_404(siteUrl, pk=siteId)
 	PersonObj	=	get_object_or_404(Person, pk=PersonId)
 	userRating	= 	request.POST['choice']
 	newEntry	=	Entries.objects.create(personId=PersonObj,urlId=siteObj,rating=int(userRating))
+	total=0.0
 	if userRating=="7":
 		siteObj.rate7+=1
+		total+=siteObj.rate7
 	elif userRating=="6":
 		siteObj.rate6+=1
+		total+=siteObj.rate6
 	elif userRating=="5":
 		siteObj.rate5+=1
+		total+=siteObj.rate5
 	elif userRating=="4":
 		siteObj.rate4+=1
+		total+=siteObj.rate4
 	elif userRating=="3":
 		siteObj.rate3+=1
+		total+=siteObj.rate3
 	elif userRating=="2":
 		siteObj.rate2+=1
+		total+=siteObj.rate2
 	elif userRating=="1":
 		siteObj.rate1+=1
+		total+=siteObj.rate1
+	siteObj.rateCount+=1
+	siteObj.rating=1.0*total/siteObj.rateCount
 	siteObj.save()
-	nextSite	=	random.choice(list(siteUrl.objects.order_by('id')))
+
 	if num==19:
 		num=0
 		args={}
 		return HttpResponseRedirect(reverse('pollSite:thanks'))
 	num+=1
-	return HttpResponseRedirect(reverse('pollSite:detail', args=(nextSite.id,PersonObj.id)))
+	return HttpResponseRedirect(reverse('pollSite:detail', args=(nextSite[num].id,PersonObj.id)))
 def newPerson(request):
+	global nextSite
+	global num
 	Name		=	request.POST['Name']
 	age			=	request.POST['age']
 	sex			=	request.POST['gender']
 	education	=	request.POST['education']
 	PersonObj	=	Person.objects.create(name=Name,age=int(age),sex=int(sex),education=int(education))
-	nextSite	=	random.choice(list(siteUrl.objects.order_by('id')))
-	return HttpResponseRedirect(reverse('pollSite:detail', args=(nextSite.id,PersonObj.id)))
+	nextSite	=	list(siteUrl.objects.order_by('rateCount'))[:20]
+	num=0
+	return HttpResponseRedirect(reverse('pollSite:detail', args=(nextSite[num].id,PersonObj.id)))
