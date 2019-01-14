@@ -6,7 +6,7 @@ writer.writerow(['rating'])
 for obj in siteUrl.objects.all():
 	siteId=obj.id
 	siteRating=obj.rating
-	siteZRating= (siteRating-1.0)/7.0
+	siteZRating= (siteRating-1.0)/6.0
 	print(siteId,siteZRating)
 	writer.writerow([siteZRating])
 csvFile.close()
