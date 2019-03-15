@@ -7,21 +7,6 @@ from .models import Entries, Person, siteUrl
 
 import random
 import datetime
-"""
-class IndexView(generic.ListView):
-    template_name = 'pollSite/index.html'
-    context_object_name = 'question_list'
-    def get_queryset(self):
-        return siteUrl.objects.order_by('id')
-class DetailView(generic.DetailView):
-    model = siteUrl
-    template_name = 'pollSite/detail.html'
-class ResultsView(generic.DetailView):
-    model = siteUrl
-    template_name = 'pollSite/results.html'
-"""
-num=0
-nextSite=[]
 def index(request):
 	args={}
 	return render(request,'pollSite/index.html',args)
@@ -41,10 +26,8 @@ def thanks(request):
 	args		=	{}
 	return render(request,'pollSite/thanks.html',args)
 def vote(request, siteId, PersonId):
-	global num
-	global nextSite
 	siteObj		=	get_object_or_404(siteUrl, pk=siteId)
-	PersonObj	=	get_object_or_404(Person, pk=PersonId)
+	PersonObj	=	get_object_or_404(Person,  pk=PersonId)
 	userRating	= 	request.POST['choice']
 	newEntry	=	Entries.objects.create(personId=PersonObj,urlId=siteObj,rating=int(userRating))
 	total=0.0
@@ -70,23 +53,26 @@ def vote(request, siteId, PersonId):
 		siteObj.rate1+=1
 		total+=siteObj.rate1
 	siteObj.rateCount+=1
+	PersonObj.count+=1
 	siteObj.rating=1.0*total/siteObj.rateCount
 	siteObj.save()
-
-	if num==19:
-		num=0
+	PersonObj.save()
+	if PersonObj.count >=20:
 		args={}
 		return HttpResponseRedirect(reverse('pollSite:thanks'))
-	num+=1
-	return HttpResponseRedirect(reverse('pollSite:detail', args=(nextSite[num].id,PersonObj.id)))
+	nextSite	=	list(siteUrl.objects.order_by('rateCount'))[0]
+	return HttpResponseRedirect(reverse('pollSite:detail', args=(nextSite.id,PersonObj.id)))
 def newPerson(request):
-	global nextSite
-	global num
 	Name		=	request.POST['Name']
 	age			=	request.POST['age']
 	sex			=	request.POST['gender']
 	education	=	request.POST['education']
-	PersonObj	=	Person.objects.create(name=Name,age=int(age),sex=int(sex),education=int(education))
-	nextSite	=	list(siteUrl.objects.order_by('rateCount'))[:20]
-	num=0
-	return HttpResponseRedirect(reverse('pollSite:detail', args=(nextSite[num].id,PersonObj.id)))
+	try:
+		PersonObj	=	Person.objects.get(name=Name,age=int(age),sex=int(sex),education=int(education))
+	except Person.DoesNotExist:
+		PersonObj	=	Person.objects.create(name=Name,age=int(age),sex=int(sex),education=int(education))
+	if PersonObj.count >=20:
+		args={}
+		return HttpResponseRedirect(reverse('pollSite:thanks'))
+	nextSite	=	list(siteUrl.objects.order_by('rateCount'))[0]
+	return HttpResponseRedirect(reverse('pollSite:detail', args=(nextSite.id,PersonObj.id)))

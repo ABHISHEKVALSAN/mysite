@@ -23,6 +23,7 @@ class Person(models.Model):
 	age				=	models.IntegerField(default=0)
 	sex				=	models.IntegerField(default=0)
 	education		=	models.IntegerField(default=0)
+	count			=	models.IntegerField(default=0)
 
 class Entries(models.Model):
 	personId		=	models.ForeignKey(Person, on_delete=models.CASCADE)
