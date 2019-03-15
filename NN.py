@@ -31,3 +31,5 @@ for i in range(n):
 	dev+=abs(Y_test[i]-predictions[i])
 	print(Y[i],predictions[i])
 print("average deviation",dev/n)
+print(X_test)
+model.predict([])

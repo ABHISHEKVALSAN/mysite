@@ -1,0 +1,452 @@
+1552618053162	geckodriver	INFO	geckodriver 0.21.0
+1552618053178	geckodriver	INFO	Listening on 127.0.0.1:42233
+1552618054174	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.6F5KyFBw6f5h"
+*** You are running in headless mode.
+1552618054436	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1552618054436	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1552618054550	Marionette	TRACE	Received observer notification profile-after-change
+1552618054975	Marionette	TRACE	Received observer notification command-line-startup
+1552618054975	Marionette	TRACE	Received observer notification nsPref:changed
+1552618054975	Marionette	DEBUG	Init aborted (running=false, enabled=true, finalUIStartup=false)
+1552618055749	Marionette	TRACE	Received observer notification toplevel-window-ready
+1552618056837	Marionette	TRACE	Received observer notification sessionstore-windows-restored
+1552618056838	Marionette	TRACE	Waiting until startup recorder finished recording startup scripts...
+1552618056999	Marionette	TRACE	All scripts recorded.
+1552618057000	Marionette	DEBUG	Setting recommended pref app.update.disabledForTesting to true
+1552618057000	Marionette	DEBUG	Setting recommended pref apz.content_response_timeout to 60000
+1552618057001	Marionette	DEBUG	Setting recommended pref browser.contentblocking.introCount to 99
+1552618057001	Marionette	DEBUG	Setting recommended pref browser.download.panel.shown to true
+1552618057001	Marionette	DEBUG	Setting recommended pref browser.newtabpage.enabled to false
+1552618057002	Marionette	DEBUG	Setting recommended pref browser.pagethumbnails.capturing_disabled to true
+1552618057003	Marionette	DEBUG	Setting recommended pref browser.search.update to false
+1552618057003	Marionette	DEBUG	Setting recommended pref browser.tabs.disableBackgroundZombification to false
+1552618057004	Marionette	DEBUG	Setting recommended pref browser.tabs.warnOnCloseOtherTabs to false
+1552618057004	Marionette	DEBUG	Setting recommended pref browser.tabs.warnOnOpen to false
+1552618057004	Marionette	DEBUG	Setting recommended pref browser.usedOnWindows10.introURL to 
+1552618057005	Marionette	DEBUG	Setting recommended pref browser.urlbar.suggest.searches to false
+1552618057006	Marionette	DEBUG	Setting recommended pref datareporting.policy.dataSubmissionPolicyAccepted to false
+1552618057006	Marionette	DEBUG	Setting recommended pref dom.disable_beforeunload to true
+1552618057006	Marionette	DEBUG	Setting recommended pref dom.disable_open_during_load to false
+1552618057006	Marionette	DEBUG	Setting recommended pref dom.file.createInChild to true
+1552618057006	Marionette	DEBUG	Setting recommended pref dom.max_chrome_script_run_time to 0
+1552618057007	Marionette	DEBUG	Setting recommended pref dom.max_script_run_time to 0
+1552618057008	Marionette	DEBUG	Setting recommended pref extensions.getAddons.cache.enabled to false
+1552618057008	Marionette	DEBUG	Setting recommended pref extensions.webservice.discoverURL to http://%(server)s/dummy/discoveryURL
+1552618057008	Marionette	DEBUG	Setting recommended pref network.http.prompt-temp-redirect to false
+1552618057008	Marionette	DEBUG	Setting recommended pref network.http.speculative-parallel-limit to 0
+1552618057008	Marionette	DEBUG	Setting recommended pref security.fileuri.strict_origin_policy to false
+1552618057009	Marionette	DEBUG	Setting recommended pref security.notification_enable_delay to 0
+1552618057009	Marionette	DEBUG	Setting recommended pref signon.autofillForms to false
+1552618057009	Marionette	DEBUG	Setting recommended pref signon.rememberSignons to false
+1552618057009	Marionette	DEBUG	Setting recommended pref toolkit.cosmeticAnimations.enabled to false
+1552618057045	Marionette	INFO	Listening on port 38775
+1552618057045	Marionette	DEBUG	Remote service is active
+1552618057114	Marionette	DEBUG	Accepted connection 0 from 127.0.0.1:55088
+1552618057120	Marionette	DEBUG	0 -> [0,1,"WebDriver:NewSession",{"acceptInsecureCerts":true,"browserName":"firefox","capabilities":{"desiredCapabilities":{"acceptInsecureCerts":true,"browserName":"firefox"}}}]
+1552618057120	Marionette	WARN	TLS certificate errors will be ignored for this session
+1552618057155	Marionette	TRACE	[4294967297] Frame script loaded
+1552618057162	Marionette	TRACE	[4294967297] Frame script registered
+1552618057166	Marionette	DEBUG	0 <- [1,1,null,{"sessionId":"abddb3ce-2732-47cc-8db7-c7cbea4f46c8","capabilities":{"browserName":"firefox","browserVersion":"65.0. ... alse,"moz:webdriverClick":true,"capabilities":{"desiredCapabilities":{"acceptInsecureCerts":true,"browserName":"firefox"}}}}]
+1552618057171	Marionette	DEBUG	0 -> [0,2,"WebDriver:SetTimeouts",{"implicit":3000}]
+1552618057172	Marionette	DEBUG	0 <- [1,2,null,{"value":null}]
+1552618057173	Marionette	DEBUG	0 -> [0,3,"WebDriver:Navigate",{"url":"http://www.allindiaradio.gov.in/Default.aspx"}]
+1552618057198	Marionette	TRACE	[4294967297] Received DOM event beforeunload for about:blank
+1552618057725	Marionette	TRACE	[4294967297] Received DOM event pagehide for about:blank
+JavaScript warning: http://www.allindiaradio.gov.in/_Layouts/AIR/jquery/jquery-1.9.0.min.js, line 3: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: http://www.allindiaradio.gov.in/Default.aspx, line 147: unreachable code after return statement
+1552618059758	Marionette	TRACE	[4294967297] Received DOM event DOMContentLoaded for http://www.allindiaradio.gov.in/Default.aspx
+1552618062732	Marionette	TRACE	[4294967297] Received observer notification outer-window-destroyed
+1552618067994	geckodriver	INFO	geckodriver 0.21.0
+1552618067998	geckodriver	INFO	Listening on 127.0.0.1:33227
+1552618069004	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.khh6qWVGxynW"
+1552618069293	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1552618069293	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1552618069409	Marionette	TRACE	Received observer notification profile-after-change
+1552618069851	Marionette	TRACE	Received observer notification command-line-startup
+1552618069851	Marionette	TRACE	Received observer notification nsPref:changed
+1552618069852	Marionette	DEBUG	Init aborted (running=false, enabled=true, finalUIStartup=false)
+1552618070660	Marionette	TRACE	Received observer notification toplevel-window-ready
+1552618071669	Marionette	TRACE	Received observer notification sessionstore-windows-restored
+1552618071669	Marionette	TRACE	Waiting until startup recorder finished recording startup scripts...
+1552618071774	Marionette	TRACE	All scripts recorded.
+1552618071775	Marionette	DEBUG	Setting recommended pref app.update.disabledForTesting to true
+1552618071775	Marionette	DEBUG	Setting recommended pref apz.content_response_timeout to 60000
+1552618071775	Marionette	DEBUG	Setting recommended pref browser.contentblocking.introCount to 99
+1552618071775	Marionette	DEBUG	Setting recommended pref browser.download.panel.shown to true
+1552618071775	Marionette	DEBUG	Setting recommended pref browser.newtabpage.enabled to false
+1552618071775	Marionette	DEBUG	Setting recommended pref browser.pagethumbnails.capturing_disabled to true
+1552618071776	Marionette	DEBUG	Setting recommended pref browser.search.update to false
+1552618071776	Marionette	DEBUG	Setting recommended pref browser.tabs.disableBackgroundZombification to false
+1552618071776	Marionette	DEBUG	Setting recommended pref browser.tabs.warnOnCloseOtherTabs to false
+1552618071776	Marionette	DEBUG	Setting recommended pref browser.tabs.warnOnOpen to false
+1552618071776	Marionette	DEBUG	Setting recommended pref browser.usedOnWindows10.introURL to 
+1552618071776	Marionette	DEBUG	Setting recommended pref browser.urlbar.suggest.searches to false
+1552618071777	Marionette	DEBUG	Setting recommended pref datareporting.policy.dataSubmissionPolicyAccepted to false
+1552618071777	Marionette	DEBUG	Setting recommended pref dom.disable_beforeunload to true
+1552618071777	Marionette	DEBUG	Setting recommended pref dom.disable_open_during_load to false
+1552618071777	Marionette	DEBUG	Setting recommended pref dom.file.createInChild to true
+1552618071777	Marionette	DEBUG	Setting recommended pref dom.max_chrome_script_run_time to 0
+1552618071777	Marionette	DEBUG	Setting recommended pref dom.max_script_run_time to 0
+1552618071777	Marionette	DEBUG	Setting recommended pref extensions.getAddons.cache.enabled to false
+1552618071777	Marionette	DEBUG	Setting recommended pref extensions.webservice.discoverURL to http://%(server)s/dummy/discoveryURL
+1552618071777	Marionette	DEBUG	Setting recommended pref network.http.prompt-temp-redirect to false
+1552618071777	Marionette	DEBUG	Setting recommended pref network.http.speculative-parallel-limit to 0
+1552618071777	Marionette	DEBUG	Setting recommended pref security.fileuri.strict_origin_policy to false
+1552618071777	Marionette	DEBUG	Setting recommended pref security.notification_enable_delay to 0
+1552618071777	Marionette	DEBUG	Setting recommended pref signon.autofillForms to false
+1552618071778	Marionette	DEBUG	Setting recommended pref signon.rememberSignons to false
+1552618071778	Marionette	DEBUG	Setting recommended pref toolkit.cosmeticAnimations.enabled to false
+1552618071808	Marionette	INFO	Listening on port 39247
+1552618071809	Marionette	DEBUG	Remote service is active
+1552618071812	Marionette	DEBUG	Accepted connection 0 from 127.0.0.1:60624
+1552618071815	Marionette	DEBUG	0 -> [0,1,"WebDriver:NewSession",{"acceptInsecureCerts":true,"browserName":"firefox","capabilities":{"desiredCapabilities":{"acceptInsecureCerts":true,"browserName":"firefox"}}}]
+1552618071815	Marionette	WARN	TLS certificate errors will be ignored for this session
+1552618071858	Marionette	TRACE	[4294967297] Frame script loaded
+1552618071894	Marionette	TRACE	[4294967297] Frame script registered
+1552618071902	Marionette	DEBUG	0 <- [1,1,null,{"sessionId":"6ef9c79c-0aa6-4dc3-9b16-f7a192c14716","capabilities":{"browserName":"firefox","browserVersion":"65.0. ... alse,"moz:webdriverClick":true,"capabilities":{"desiredCapabilities":{"acceptInsecureCerts":true,"browserName":"firefox"}}}}]
+1552618071908	Marionette	DEBUG	0 -> [0,2,"WebDriver:SetTimeouts",{"implicit":3000}]
+1552618071908	Marionette	DEBUG	0 <- [1,2,null,{"value":null}]
+1552618071920	Marionette	DEBUG	0 -> [0,3,"WebDriver:Navigate",{"url":"http://www.allindiaradio.gov.in/Default.aspx"}]
+1552618071948	Marionette	TRACE	[4294967297] Received DOM event beforeunload for about:blank
+1552618072465	Marionette	TRACE	[4294967297] Received DOM event pagehide for about:blank
+JavaScript warning: http://www.allindiaradio.gov.in/_Layouts/AIR/jquery/jquery-1.9.0.min.js, line 3: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: http://www.allindiaradio.gov.in/Default.aspx, line 147: unreachable code after return statement
+1552618074448	Marionette	TRACE	[4294967297] Received DOM event DOMContentLoaded for http://www.allindiaradio.gov.in/Default.aspx
+1552618077301	Marionette	TRACE	[4294967297] Received observer notification outer-window-destroyed
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:188:13
+
+1552618163354	Marionette	TRACE	[4294967297] Received DOM event pageshow for http://www.allindiaradio.gov.in/Default.aspx
+1552618163356	Marionette	DEBUG	0 <- [1,3,null,{"value":null}]
+1552618163360	Marionette	DEBUG	0 -> [0,4,"WebDriver:SetWindowRect",{"height":768,"width":1024,"x":null,"y":null}]
+1552618163371	Marionette	DEBUG	0 <- [1,4,null,{"x":269,"y":58,"width":1024,"height":768,"state":"normal"}]
+1552618163377	Marionette	DEBUG	0 -> [0,5,"WebDriver:SetTimeouts",{"implicit":10000}]
+1552618163377	Marionette	DEBUG	0 <- [1,5,null,{"value":null}]
+1552618163379	Marionette	DEBUG	0 -> [0,6,"WebDriver:FindElements",{"using":"css selector","value":"body"}]
+1552618163384	Marionette	DEBUG	0 <- [1,6,null,[{"element-6066-11e4-a52e-4f735466cecf":"614723eb-0edf-4616-8627-ca6e844482fa"}]]
+1552618163386	Marionette	DEBUG	0 -> [0,7,"WebDriver:GetPageSource",{}]
+1552618163391	Marionette	DEBUG	0 <- [1,7,null,{"value":"<html __expr-val-dir=\"ltr\" dir=\"ltr\"><head><meta name=\"GENERATOR\" content=\"Microsoft SharePoint\"> ... tter.com%2Fsettings\" title=\"Twitter settings iframe\" style=\"display: none;\" frameborder=\"0\"></iframe></body></html>"}]
+1552618163478	Marionette	DEBUG	0 -> [0,8,"WebDriver:ExecuteScript",{"args":[],"newSandbox":false,"script":"return document.body.innerText","scriptTimeout":null,"specialPowers":false}]
+1552618163483	Marionette	DEBUG	0 <- [1,8,null,{"value":"\n\n\t\n\t\n\t\nSign In\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\n\n\n\n\t\n\n\nHome\n\n\n\nAI ... rasar Bharti Board | Prasar Bharti Act | Secretariat | Right to Information | Contact Us | Disclaimer | Facebook | Twitter"}]
+1552618163504	Marionette	DEBUG	0 -> [0,9,"WebDriver:FindElements",{"using":"css selector","value":"b"}]
+1552618173514	Marionette	DEBUG	0 <- [1,9,null,[]]
+1552618173517	Marionette	DEBUG	0 -> [0,10,"WebDriver:ExecuteScript",{"args":[],"newSandbox":false,"script":"return document.body.innerText","scriptTimeout":null,"specialPowers":false}]
+1552618173521	Marionette	DEBUG	0 <- [1,10,null,{"value":"\n\n\t\n\t\n\t\nSign In\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\n\n\n\n\t\n\n\nHome\n\n\n\nA ... rasar Bharti Board | Prasar Bharti Act | Secretariat | Right to Information | Contact Us | Disclaimer | Facebook | Twitter"}]
+1552618173524	Marionette	DEBUG	0 -> [0,11,"WebDriver:ExecuteScript",{"args":[],"newSandbox":false,"script":"return document.body.innerText","scriptTimeout":null,"specialPowers":false}]
+1552618173527	Marionette	DEBUG	0 <- [1,11,null,{"value":"\n\n\t\n\t\n\t\nSign In\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\n\n\n\n\t\n\n\nHome\n\n\n\nA ... rasar Bharti Board | Prasar Bharti Act | Secretariat | Right to Information | Contact Us | Disclaimer | Facebook | Twitter"}]
+1552618173531	Marionette	DEBUG	0 -> [0,12,"WebDriver:FindElements",{"using":"css selector","value":"td"}]
+1552618173579	Marionette	DEBUG	0 <- [1,12,null,[{"element-6066-11e4-a52e-4f735466cecf":"dc9f7641-1f24-4ab8-ae99-14a13378702b"},{"element-6066-11e4-a52e-4f735466c ... ecf":"af201601-dcbd-4084-8787-ac86e66320b7"},{"element-6066-11e4-a52e-4f735466cecf":"350bf794-628f-4a6b-b0c4-2420a023d30d"}]]
+1552618173625	Marionette	DEBUG	0 -> [0,13,"WebDriver:FindElements",{"using":"css selector","value":"table"}]
+1552618173646	Marionette	DEBUG	0 <- [1,13,null,[{"element-6066-11e4-a52e-4f735466cecf":"f5e43055-0899-409b-8d54-97b0e127c46b"},{"element-6066-11e4-a52e-4f735466c ... ecf":"6a2445ee-1966-459f-b910-b62f4c18c69b"},{"element-6066-11e4-a52e-4f735466cecf":"a29fd54b-0079-4c0a-9c32-17670c7b5673"}]]
+1552618173649	Marionette	DEBUG	0 -> [0,14,"WebDriver:FindElements",{"using":"css selector","value":"p"}]
+1552618173653	Marionette	DEBUG	0 <- [1,14,null,[{"element-6066-11e4-a52e-4f735466cecf":"51b3ff9c-25a1-40d8-805e-28cde32e413b"},{"element-6066-11e4-a52e-4f735466c ... ecf":"eee332a0-506e-4927-a27a-ab736a98714e"},{"element-6066-11e4-a52e-4f735466cecf":"58048aab-95de-4bb8-804a-c07d6994c505"}]]
+1552618173654	Marionette	DEBUG	0 -> [0,15,"WebDriver:FindElements",{"using":"css selector","value":"a"}]
+1552618173710	Marionette	DEBUG	0 <- [1,15,null,[{"element-6066-11e4-a52e-4f735466cecf":"b4ae07e5-6569-4da7-87ef-034be680ccb3"},{"element-6066-11e4-a52e-4f735466c ... ecf":"4988db2d-5d92-4af0-8756-f9b1172cca52"},{"element-6066-11e4-a52e-4f735466cecf":"a0b9313a-0e33-46a0-981f-18c907209303"}]]
+1552618173753	Marionette	DEBUG	0 -> [0,16,"WebDriver:GetElementText",{"id":"b4ae07e5-6569-4da7-87ef-034be680ccb3"}]
+1552618173766	Marionette	DEBUG	0 <- [1,16,null,{"value":"Sign In"}]
+1552618173768	Marionette	DEBUG	0 -> [0,17,"WebDriver:GetElementText",{"id":"825db763-8080-4a05-833b-08dee1a84de8"}]
+1552618173777	Marionette	DEBUG	0 <- [1,17,null,{"value":""}]
+1552618173779	Marionette	DEBUG	0 -> [0,18,"WebDriver:GetElementText",{"id":"32103d76-28cf-46de-8a4a-c927f6ab5d18"}]
+1552618173794	Marionette	DEBUG	0 <- [1,18,null,{"value":""}]
+1552618173796	Marionette	DEBUG	0 -> [0,19,"WebDriver:GetElementText",{"id":"9629bab9-40de-4406-80e1-338c108ab470"}]
+1552618173805	Marionette	DEBUG	0 <- [1,19,null,{"value":""}]
+1552618173807	Marionette	DEBUG	0 -> [0,20,"WebDriver:GetElementText",{"id":"bbb3692f-b914-4ac9-88e7-04f405d53632"}]
+1552618173820	Marionette	DEBUG	0 <- [1,20,null,{"value":""}]
+1552618173821	Marionette	DEBUG	0 -> [0,21,"WebDriver:GetElementText",{"id":"eafab8ec-e4dc-48e6-b394-e601dae02fcc"}]
+1552618173830	Marionette	DEBUG	0 <- [1,21,null,{"value":""}]
+1552618173831	Marionette	DEBUG	0 -> [0,22,"WebDriver:GetElementText",{"id":"3d5f8f47-8d98-4a4f-804c-d9e278a06b30"}]
+1552618173838	Marionette	DEBUG	0 <- [1,22,null,{"value":""}]
+1552618173839	Marionette	DEBUG	0 -> [0,23,"WebDriver:GetElementText",{"id":"eea75235-7bdd-4262-b613-297239a7a358"}]
+1552618173847	Marionette	DEBUG	0 <- [1,23,null,{"value":""}]
+1552618173848	Marionette	DEBUG	0 -> [0,24,"WebDriver:GetElementText",{"id":"f2e26e2c-cd61-4cef-9532-22a3d39559ff"}]
+1552618173855	Marionette	DEBUG	0 <- [1,24,null,{"value":""}]
+1552618173856	Marionette	DEBUG	0 -> [0,25,"WebDriver:GetElementText",{"id":"02d56ea3-0cff-4bbb-826c-999dea0301c0"}]
+1552618173865	Marionette	DEBUG	0 <- [1,25,null,{"value":""}]
+1552618173867	Marionette	DEBUG	0 -> [0,26,"WebDriver:GetElementText",{"id":"d62b589e-fbbc-4dab-9e84-811e6aa3fd85"}]
+1552618173873	Marionette	DEBUG	0 <- [1,26,null,{"value":""}]
+1552618173874	Marionette	DEBUG	0 -> [0,27,"WebDriver:GetElementText",{"id":"b2de2b50-5d32-46c2-9b9f-551efe0b403a"}]
+1552618173877	Marionette	DEBUG	0 <- [1,27,null,{"value":""}]
+1552618173878	Marionette	DEBUG	0 -> [0,28,"WebDriver:GetElementText",{"id":"33ac28cf-e75e-4528-8331-cb6247875961"}]
+1552618173881	Marionette	DEBUG	0 <- [1,28,null,{"value":""}]
+1552618173882	Marionette	DEBUG	0 -> [0,29,"WebDriver:GetElementText",{"id":"7377198a-3bf5-4e54-b479-46cca517df27"}]
+1552618173885	Marionette	DEBUG	0 <- [1,29,null,{"value":""}]
+1552618173887	Marionette	DEBUG	0 -> [0,30,"WebDriver:GetElementText",{"id":"48d5fd78-b486-432a-9b33-c998b41f5214"}]
+1552618173890	Marionette	DEBUG	0 <- [1,30,null,{"value":""}]
+1552618173891	Marionette	DEBUG	0 -> [0,31,"WebDriver:GetElementText",{"id":"529269f4-7d78-43ea-979f-e770d6f99b55"}]
+1552618173894	Marionette	DEBUG	0 <- [1,31,null,{"value":""}]
+1552618173895	Marionette	DEBUG	0 -> [0,32,"WebDriver:GetElementText",{"id":"277f4624-7a25-4a07-b2e6-3c1bc67a9805"}]
+1552618173898	Marionette	DEBUG	0 <- [1,32,null,{"value":""}]
+1552618173899	Marionette	DEBUG	0 -> [0,33,"WebDriver:GetElementText",{"id":"9622d420-44a3-4439-9a48-49a6c76ea780"}]
+1552618173901	Marionette	DEBUG	0 <- [1,33,null,{"value":""}]
+1552618173902	Marionette	DEBUG	0 -> [0,34,"WebDriver:GetElementText",{"id":"51cd65aa-1e88-40f3-affe-e3c1caceea98"}]
+1552618173903	Marionette	DEBUG	0 <- [1,34,null,{"value":""}]
+1552618173904	Marionette	DEBUG	0 -> [0,35,"WebDriver:GetElementText",{"id":"430ff825-c0cc-4ee1-834f-0b6b76955995"}]
+1552618173906	Marionette	DEBUG	0 <- [1,35,null,{"value":""}]
+1552618173907	Marionette	DEBUG	0 -> [0,36,"WebDriver:GetElementText",{"id":"6ac72263-ebff-46e8-924e-f61e09e75cbe"}]
+1552618173910	Marionette	DEBUG	0 <- [1,36,null,{"value":""}]
+1552618173912	Marionette	DEBUG	0 -> [0,37,"WebDriver:GetElementText",{"id":"2d746da3-dc2d-45e5-a8aa-1727136af7ac"}]
+1552618173914	Marionette	DEBUG	0 <- [1,37,null,{"value":""}]
+1552618173916	Marionette	DEBUG	0 -> [0,38,"WebDriver:GetElementText",{"id":"3319cdaf-1a3e-4442-86e8-e1f37c87c009"}]
+1552618173918	Marionette	DEBUG	0 <- [1,38,null,{"value":""}]
+1552618173919	Marionette	DEBUG	0 -> [0,39,"WebDriver:GetElementText",{"id":"26277d68-8ded-4b5b-8b5b-0e9724d14f25"}]
+1552618173920	Marionette	DEBUG	0 <- [1,39,null,{"value":""}]
+1552618173922	Marionette	DEBUG	0 -> [0,40,"WebDriver:GetElementText",{"id":"49e5b6f4-5fc9-4668-b7d5-e5e899d4cadf"}]
+1552618173924	Marionette	DEBUG	0 <- [1,40,null,{"value":""}]
+1552618173925	Marionette	DEBUG	0 -> [0,41,"WebDriver:GetElementText",{"id":"fc3e346a-91f6-4b49-bd52-fb104aedb053"}]
+1552618173927	Marionette	DEBUG	0 <- [1,41,null,{"value":""}]
+1552618173929	Marionette	DEBUG	0 -> [0,42,"WebDriver:GetElementText",{"id":"ed7fbc11-255a-4f80-b6f6-a16897724c94"}]
+1552618173931	Marionette	DEBUG	0 <- [1,42,null,{"value":""}]
+1552618173933	Marionette	DEBUG	0 -> [0,43,"WebDriver:GetElementText",{"id":"47ea02a2-6640-47c7-87e4-06b02f225a43"}]
+1552618173935	Marionette	DEBUG	0 <- [1,43,null,{"value":""}]
+1552618173937	Marionette	DEBUG	0 -> [0,44,"WebDriver:GetElementText",{"id":"981d79ee-819f-4c69-9649-75a9f3ad188d"}]
+1552618173938	Marionette	DEBUG	0 <- [1,44,null,{"value":""}]
+1552618173939	Marionette	DEBUG	0 -> [0,45,"WebDriver:GetElementText",{"id":"e7203f6e-fe64-46d7-85d7-d557bc4ae770"}]
+1552618173941	Marionette	DEBUG	0 <- [1,45,null,{"value":""}]
+1552618173943	Marionette	DEBUG	0 -> [0,46,"WebDriver:GetElementText",{"id":"27e901b6-257f-426c-a2ff-2c66797a36b7"}]
+1552618173945	Marionette	DEBUG	0 <- [1,46,null,{"value":""}]
+1552618173947	Marionette	DEBUG	0 -> [0,47,"WebDriver:GetElementText",{"id":"8a403f52-b636-4aa4-b9d3-7ef681d81e3c"}]
+1552618173949	Marionette	DEBUG	0 <- [1,47,null,{"value":""}]
+1552618173951	Marionette	DEBUG	0 -> [0,48,"WebDriver:GetElementText",{"id":"23a42867-08db-4d83-ab2e-106c08e2b8b2"}]
+1552618173953	Marionette	DEBUG	0 <- [1,48,null,{"value":""}]
+1552618173955	Marionette	DEBUG	0 -> [0,49,"WebDriver:GetElementText",{"id":"f6f47f72-d65b-4f4a-87db-db0a3fd17f3e"}]
+1552618173957	Marionette	DEBUG	0 <- [1,49,null,{"value":""}]
+1552618173958	Marionette	DEBUG	0 -> [0,50,"WebDriver:GetElementText",{"id":"ad710969-a010-4225-9e40-003784e6f7e2"}]
+1552618173960	Marionette	DEBUG	0 <- [1,50,null,{"value":""}]
+1552618173961	Marionette	DEBUG	0 -> [0,51,"WebDriver:GetElementText",{"id":"3ac7cbb0-e0e8-4c09-ab1c-8eea3a154782"}]
+1552618173963	Marionette	DEBUG	0 <- [1,51,null,{"value":""}]
+1552618173964	Marionette	DEBUG	0 -> [0,52,"WebDriver:GetElementText",{"id":"8cbe3dd3-8754-4d0d-9878-48b75fd37d8e"}]
+1552618173965	Marionette	DEBUG	0 <- [1,52,null,{"value":""}]
+1552618173966	Marionette	DEBUG	0 -> [0,53,"WebDriver:GetElementText",{"id":"c6fcc5b4-21fb-40b1-bf37-83a8f50b8eb9"}]
+1552618173968	Marionette	DEBUG	0 <- [1,53,null,{"value":""}]
+1552618173969	Marionette	DEBUG	0 -> [0,54,"WebDriver:GetElementText",{"id":"67ae62e9-828b-4eaf-8e34-e23542678dee"}]
+1552618173971	Marionette	DEBUG	0 <- [1,54,null,{"value":""}]
+1552618173972	Marionette	DEBUG	0 -> [0,55,"WebDriver:GetElementText",{"id":"abd60f72-fe70-409c-ae97-a174eb703520"}]
+1552618173974	Marionette	DEBUG	0 <- [1,55,null,{"value":""}]
+1552618173975	Marionette	DEBUG	0 -> [0,56,"WebDriver:GetElementText",{"id":"9bfa7e79-fd3c-4f5b-8782-daa5b8cae795"}]
+1552618173977	Marionette	DEBUG	0 <- [1,56,null,{"value":""}]
+1552618173979	Marionette	DEBUG	0 -> [0,57,"WebDriver:GetElementText",{"id":"8b87b105-a608-4921-9612-be1f03515d81"}]
+1552618173980	Marionette	DEBUG	0 <- [1,57,null,{"value":""}]
+1552618173982	Marionette	DEBUG	0 -> [0,58,"WebDriver:GetElementText",{"id":"b7d6a3a0-5a16-4847-b551-6496ee99023c"}]
+1552618173983	Marionette	DEBUG	0 <- [1,58,null,{"value":""}]
+1552618173985	Marionette	DEBUG	0 -> [0,59,"WebDriver:GetElementText",{"id":"d80f070b-b0fc-4fa3-86ba-055e0cdfe6e6"}]
+1552618173986	Marionette	DEBUG	0 <- [1,59,null,{"value":""}]
+1552618173987	Marionette	DEBUG	0 -> [0,60,"WebDriver:GetElementText",{"id":"7e2cd5a9-bcee-4791-9245-b69b1590317d"}]
+1552618173989	Marionette	DEBUG	0 <- [1,60,null,{"value":""}]
+1552618173990	Marionette	DEBUG	0 -> [0,61,"WebDriver:GetElementText",{"id":"8f027d65-2c0e-4518-85c0-2c4a11e9d1d0"}]
+1552618173992	Marionette	DEBUG	0 <- [1,61,null,{"value":""}]
+1552618173993	Marionette	DEBUG	0 -> [0,62,"WebDriver:GetElementText",{"id":"16d8f155-599a-485c-9277-0aef2858795f"}]
+1552618173996	Marionette	DEBUG	0 <- [1,62,null,{"value":""}]
+1552618173997	Marionette	DEBUG	0 -> [0,63,"WebDriver:GetElementText",{"id":"c882f6f8-4ffb-4017-8a3f-df381a60e605"}]
+1552618174003	Marionette	DEBUG	0 <- [1,63,null,{"value":""}]
+1552618174004	Marionette	DEBUG	0 -> [0,64,"WebDriver:GetElementText",{"id":"257cd37c-f567-46dd-bd1f-5343df6c53e9"}]
+1552618174005	Marionette	DEBUG	0 <- [1,64,null,{"value":""}]
+1552618174007	Marionette	DEBUG	0 -> [0,65,"WebDriver:GetElementText",{"id":"88973a05-8042-4467-a197-91e9cdf81b7d"}]
+1552618174009	Marionette	DEBUG	0 <- [1,65,null,{"value":""}]
+1552618174011	Marionette	DEBUG	0 -> [0,66,"WebDriver:GetElementText",{"id":"33715a14-1e76-430c-bf2c-5ff6f3a2681d"}]
+1552618174013	Marionette	DEBUG	0 <- [1,66,null,{"value":""}]
+1552618174014	Marionette	DEBUG	0 -> [0,67,"WebDriver:GetElementText",{"id":"49632efd-4194-4634-aa59-0776c09e305c"}]
+1552618174016	Marionette	DEBUG	0 <- [1,67,null,{"value":""}]
+1552618174017	Marionette	DEBUG	0 -> [0,68,"WebDriver:GetElementText",{"id":"b8e630b8-b395-4a25-b4cf-70b0f774ec3f"}]
+1552618174019	Marionette	DEBUG	0 <- [1,68,null,{"value":""}]
+1552618174020	Marionette	DEBUG	0 -> [0,69,"WebDriver:GetElementText",{"id":"737d4ad5-6948-4164-8fb2-21fb939bac43"}]
+1552618174022	Marionette	DEBUG	0 <- [1,69,null,{"value":""}]
+1552618174023	Marionette	DEBUG	0 -> [0,70,"WebDriver:GetElementText",{"id":"985fd79c-43d5-40cc-a303-7c812f672d99"}]
+1552618174025	Marionette	DEBUG	0 <- [1,70,null,{"value":""}]
+1552618174027	Marionette	DEBUG	0 -> [0,71,"WebDriver:GetElementText",{"id":"43d4b080-9ec1-4fcc-9d8c-f353702095c0"}]
+1552618174029	Marionette	DEBUG	0 <- [1,71,null,{"value":""}]
+1552618174030	Marionette	DEBUG	0 -> [0,72,"WebDriver:GetElementText",{"id":"6da51faa-f84f-4709-88de-e54fc6566ec9"}]
+1552618174032	Marionette	DEBUG	0 <- [1,72,null,{"value":""}]
+1552618174034	Marionette	DEBUG	0 -> [0,73,"WebDriver:GetElementText",{"id":"7e74043a-5487-4b81-ac5f-1ee84ef80478"}]
+1552618174038	Marionette	DEBUG	0 <- [1,73,null,{"value":""}]
+1552618174040	Marionette	DEBUG	0 -> [0,74,"WebDriver:GetElementText",{"id":"2342989e-8243-48ec-8202-7a92d5647d7f"}]
+1552618174043	Marionette	DEBUG	0 <- [1,74,null,{"value":""}]
+1552618174045	Marionette	DEBUG	0 -> [0,75,"WebDriver:GetElementText",{"id":"7135c846-dd3c-4a17-b212-595975b85e47"}]
+1552618174047	Marionette	DEBUG	0 <- [1,75,null,{"value":""}]
+1552618174049	Marionette	DEBUG	0 -> [0,76,"WebDriver:GetElementText",{"id":"f598e2ab-3368-428a-be78-e2f6825c87fa"}]
+1552618174051	Marionette	DEBUG	0 <- [1,76,null,{"value":""}]
+1552618174053	Marionette	DEBUG	0 -> [0,77,"WebDriver:GetElementText",{"id":"2cbd8538-2c7c-4267-8c41-bcc50a627c2d"}]
+1552618174055	Marionette	DEBUG	0 <- [1,77,null,{"value":""}]
+1552618174057	Marionette	DEBUG	0 -> [0,78,"WebDriver:GetElementText",{"id":"44fe920a-f066-40ac-8f8b-fdeaa484d8fa"}]
+1552618174063	Marionette	DEBUG	0 <- [1,78,null,{"value":"AIR HOME"}]
+1552618174065	Marionette	DEBUG	0 -> [0,79,"WebDriver:GetElementText",{"id":"42c3de03-1b1d-4c1d-96ef-06064597adf2"}]
+1552618174071	Marionette	DEBUG	0 <- [1,79,null,{"value":"National Programs"}]
+1552618174072	Marionette	DEBUG	0 -> [0,80,"WebDriver:GetElementText",{"id":"8bf4cb6e-e35f-4d64-b086-65279db83cd9"}]
+1552618174077	Marionette	DEBUG	0 <- [1,80,null,{"value":"Spl.Audience Programs"}]
+1552618174078	Marionette	DEBUG	0 -> [0,81,"WebDriver:GetElementText",{"id":"488766cd-d59b-4ece-8357-2986c07dcc50"}]
+1552618174083	Marionette	DEBUG	0 <- [1,81,null,{"value":"Important Coverages"}]
+1552618174084	Marionette	DEBUG	0 -> [0,82,"WebDriver:GetElementText",{"id":"f81a0c52-8a02-477c-b6b9-3ea639bf4f86"}]
+1552618174089	Marionette	DEBUG	0 <- [1,82,null,{"value":"Special Events"}]
+1552618174090	Marionette	DEBUG	0 -> [0,83,"WebDriver:GetElementText",{"id":"43a0c7e7-4e51-4fcb-a393-d8efce4e396f"}]
+1552618174095	Marionette	DEBUG	0 <- [1,83,null,{"value":"National Artists"}]
+1552618174097	Marionette	DEBUG	0 -> [0,84,"WebDriver:GetElementText",{"id":"d243e18d-fd2c-41b1-97aa-2d1ac13303f6"}]
+1552618174101	Marionette	DEBUG	0 <- [1,84,null,{"value":"Tenders"}]
+1552618174103	Marionette	DEBUG	0 -> [0,85,"WebDriver:GetElementText",{"id":"306dde9c-f7ff-4881-a800-cc9eb6641f1e"}]
+1552618174107	Marionette	DEBUG	0 <- [1,85,null,{"value":"Commissioned Programs"}]
+1552618174110	Marionette	DEBUG	0 -> [0,86,"WebDriver:GetElementText",{"id":"832e71d9-a6cb-4c67-baa8-80f1daf42c27"}]
+1552618174114	Marionette	DEBUG	0 <- [1,86,null,{"value":"Listener's Corner"}]
+1552618174116	Marionette	DEBUG	0 -> [0,87,"WebDriver:GetElementText",{"id":"2c3bebf8-4701-4d20-9175-d3b2e63fed59"}]
+1552618174121	Marionette	DEBUG	0 <- [1,87,null,{"value":"AIR MUSIC COMPETITIONS 2018"}]
+1552618174122	Marionette	DEBUG	0 -> [0,88,"WebDriver:GetElementText",{"id":"cda61cfb-8e07-4d9d-afc6-cc8960e07d6b"}]
+1552618174132	Marionette	DEBUG	0 <- [1,88,null,{"value":""}]
+1552618174134	Marionette	DEBUG	0 -> [0,89,"WebDriver:GetElementText",{"id":"ed460135-c1c1-493d-a5e7-521d97efdbff"}]
+1552618174138	Marionette	DEBUG	0 <- [1,89,null,{"value":"MUSIC ARTIST"}]
+1552618174139	Marionette	DEBUG	0 -> [0,90,"WebDriver:GetElementText",{"id":"33a23bdd-49ce-4c2f-a05f-840a349ae8e5"}]
+1552618174146	Marionette	DEBUG	0 <- [1,90,null,{"value":""}]
+1552618174147	Marionette	DEBUG	0 -> [0,91,"WebDriver:GetElementText",{"id":"0daf857d-170c-4c68-a7e4-212ab58c0842"}]
+1552618174152	Marionette	DEBUG	0 <- [1,91,null,{"value":"MOBILE APPLICATION"}]
+1552618174153	Marionette	DEBUG	0 -> [0,92,"WebDriver:GetElementText",{"id":"ae713c0c-4478-426f-9b2c-5942234cf755"}]
+1552618174162	Marionette	DEBUG	0 <- [1,92,null,{"value":""}]
+1552618174164	Marionette	DEBUG	0 -> [0,93,"WebDriver:GetElementText",{"id":"1e633585-9d69-4a22-9622-63d2e5352782"}]
+1552618174170	Marionette	DEBUG	0 <- [1,93,null,{"value":"SANGEET SAMMELAN"}]
+1552618174171	Marionette	DEBUG	0 -> [0,94,"WebDriver:GetElementText",{"id":"1a7adf8e-6d37-4c6f-95cb-8820018a8a06"}]
+1552618174183	Marionette	DEBUG	0 <- [1,94,null,{"value":""}]
+1552618174185	Marionette	DEBUG	0 -> [0,95,"WebDriver:GetElementText",{"id":"dfc965ca-2cc5-4a39-bbf9-416a3e4a376d"}]
+1552618174190	Marionette	DEBUG	0 <- [1,95,null,{"value":"ADVERTISEMENTS"}]
+1552618174191	Marionette	DEBUG	0 -> [0,96,"WebDriver:GetElementText",{"id":"bb2a82de-e6cf-407b-bb46-8f91a0f11030"}]
+1552618174200	Marionette	DEBUG	0 <- [1,96,null,{"value":""}]
+1552618174202	Marionette	DEBUG	0 -> [0,97,"WebDriver:GetElementText",{"id":"ac259089-822d-45de-88f8-9200d886c401"}]
+1552618174209	Marionette	DEBUG	0 <- [1,97,null,{"value":"420"}]
+1552618174211	Marionette	DEBUG	0 -> [0,98,"WebDriver:GetElementText",{"id":"5dc8d54d-27bc-4b20-9d6f-1f1f801ffa05"}]
+1552618174221	Marionette	DEBUG	0 <- [1,98,null,{"value":"FM Gold"}]
+1552618174222	Marionette	DEBUG	0 -> [0,99,"WebDriver:GetElementText",{"id":"0ef349f1-74ff-481f-b160-3689d9879521"}]
+1552618174228	Marionette	DEBUG	0 <- [1,99,null,{"value":"Vividh Bharati"}]
+1552618174230	Marionette	DEBUG	0 -> [0,100,"WebDriver:GetElementText",{"id":"a4fb1266-5eed-4800-a89f-bcb69d2fc93e"}]
+1552618174235	Marionette	DEBUG	0 <- [1,100,null,{"value":"FM Rainbow"}]
+1552618174237	Marionette	DEBUG	0 -> [0,101,"WebDriver:GetElementText",{"id":"7c5b010d-f3b2-41f9-8688-5116c2418599"}]
+1552618174243	Marionette	DEBUG	0 <- [1,101,null,{"value":"AIR Urdu"}]
+1552618174246	Marionette	DEBUG	0 -> [0,102,"WebDriver:GetElementText",{"id":"4bda2eb8-aad2-4145-9a97-84e24365ab1d"}]
+1552618174256	Marionette	DEBUG	0 <- [1,102,null,{"value":"Raagam"}]
+1552618174257	Marionette	DEBUG	0 -> [0,103,"WebDriver:GetElementText",{"id":"90e22698-743a-447b-86b8-317fff5993fb"}]
+1552618174266	Marionette	DEBUG	0 <- [1,103,null,{"value":"AIR Gujarati"}]
+1552618174267	Marionette	DEBUG	0 -> [0,104,"WebDriver:GetElementText",{"id":"f04372bd-86a3-4309-b5dd-ea7450da0fe2"}]
+1552618174273	Marionette	DEBUG	0 <- [1,104,null,{"value":"AIR Marathi"}]
+1552618174275	Marionette	DEBUG	0 -> [0,105,"WebDriver:GetElementText",{"id":"b630ecfe-0aec-4886-a9fe-b41956a9c124"}]
+1552618174284	Marionette	DEBUG	0 <- [1,105,null,{"value":"AIR Punjabi"}]
+1552618174285	Marionette	DEBUG	0 -> [0,106,"WebDriver:GetElementText",{"id":"6339c73c-1caa-4aa0-a635-a940ebfb3262"}]
+1552618174291	Marionette	DEBUG	0 <- [1,106,null,{"value":"AIR Malayalam"}]
+1552618174292	Marionette	DEBUG	0 -> [0,107,"WebDriver:GetElementText",{"id":"a3587ccf-0d2a-4eae-9614-7ef23aafeff1"}]
+1552618174298	Marionette	DEBUG	0 <- [1,107,null,{"value":"AIR Tamil"}]
+1552618174301	Marionette	DEBUG	0 -> [0,108,"WebDriver:GetElementText",{"id":"d3510632-d1d5-4e82-b6ad-4ad78b075181"}]
+1552618174311	Marionette	DEBUG	0 <- [1,108,null,{"value":"AIR Telugu"}]
+1552618174313	Marionette	DEBUG	0 -> [0,109,"WebDriver:GetElementText",{"id":"4957aea8-947a-4c72-90b1-114d266509c2"}]
+1552618174321	Marionette	DEBUG	0 <- [1,109,null,{"value":"AIR Kannada"}]
+1552618174323	Marionette	DEBUG	0 -> [0,110,"WebDriver:GetElementText",{"id":"24d7fc93-3a52-4379-ab1a-d5c1220754cf"}]
+1552618174328	Marionette	DEBUG	0 <- [1,110,null,{"value":"AIR Bangla"}]
+1552618174330	Marionette	DEBUG	0 -> [0,111,"WebDriver:GetElementText",{"id":"5e74dd3e-8dce-4732-89de-971b9377ce1d"}]
+1552618174340	Marionette	DEBUG	0 <- [1,111,null,{"value":"Radio Kashmir"}]
+1552618174341	Marionette	DEBUG	0 -> [0,112,"WebDriver:GetElementText",{"id":"62479440-26f4-4dc0-89ee-621e777219fb"}]
+1552618174351	Marionette	DEBUG	0 <- [1,112,null,{"value":"AIR Odia"}]
+1552618174354	Marionette	DEBUG	0 -> [0,113,"WebDriver:GetElementText",{"id":"a9a096e0-6a78-42ce-8b62-059756c34159"}]
+1552618174360	Marionette	DEBUG	0 <- [1,113,null,{"value":"AIR Assamese"}]
+1552618174362	Marionette	DEBUG	0 -> [0,114,"WebDriver:GetElementText",{"id":"fe20cde3-9971-44a2-b055-3a31af83e6c8"}]
+1552618174369	Marionette	DEBUG	0 <- [1,114,null,{"value":"North Eastern Service"}]
+1552618174372	Marionette	DEBUG	0 -> [0,115,"WebDriver:GetElementText",{"id":"42518118-be80-4bec-b491-b47c5c55800e"}]
+1552618174380	Marionette	DEBUG	0 <- [1,115,null,{"value":""}]
+1552618174382	Marionette	DEBUG	0 -> [0,116,"WebDriver:GetElementText",{"id":"9a699160-f532-416c-9692-187378ca1000"}]
+1552618174390	Marionette	DEBUG	0 <- [1,116,null,{"value":""}]
+1552618174392	Marionette	DEBUG	0 -> [0,117,"WebDriver:GetElementText",{"id":"b9af9baf-585e-4d62-8b6f-49f9a7c176d9"}]
+1552618174404	Marionette	DEBUG	0 <- [1,117,null,{"value":""}]
+1552618174406	Marionette	DEBUG	0 -> [0,118,"WebDriver:GetElementText",{"id":"8732a66a-1758-4882-8f38-d93de95daed8"}]
+1552618174421	Marionette	DEBUG	0 <- [1,118,null,{"value":""}]
+1552618174422	Marionette	DEBUG	0 -> [0,119,"WebDriver:GetElementText",{"id":"cd9a1392-cf2b-4dd6-aa34-c88a22660085"}]
+1552618174436	Marionette	DEBUG	0 <- [1,119,null,{"value":""}]
+1552618174438	Marionette	DEBUG	0 -> [0,120,"WebDriver:GetElementText",{"id":"3a84e1fd-51e7-41c8-8fe9-4db9cb9bce24"}]
+1552618174448	Marionette	DEBUG	0 <- [1,120,null,{"value":""}]
+1552618174449	Marionette	DEBUG	0 -> [0,121,"WebDriver:GetElementText",{"id":"2b41c0f8-382d-49bf-8564-0258bd45ab37"}]
+1552618174459	Marionette	DEBUG	0 <- [1,121,null,{"value":""}]
+1552618174461	Marionette	DEBUG	0 -> [0,122,"WebDriver:GetElementText",{"id":"6c3cbb64-5ae1-42f0-aec7-6848dc2a5498"}]
+1552618174468	Marionette	DEBUG	0 <- [1,122,null,{"value":"MANN KI BAAT"}]
+1552618174472	Marionette	DEBUG	0 -> [0,123,"WebDriver:GetElementText",{"id":"466d88a0-86d1-4d1f-bc23-21fd7faac409"}]
+1552618174482	Marionette	DEBUG	0 <- [1,123,null,{"value":""}]
+1552618174484	Marionette	DEBUG	0 -> [0,124,"WebDriver:GetElementText",{"id":"11ce7cfb-5ebe-46d6-bad2-4a394586e9f8"}]
+1552618174493	Marionette	DEBUG	0 <- [1,124,null,{"value":"SANDESH TO SOLDIERS"}]
+1552618174495	Marionette	DEBUG	0 -> [0,125,"WebDriver:GetElementText",{"id":"428a9c57-6e68-4433-8c1f-6e9a2cb627fe"}]
+1552618174501	Marionette	DEBUG	0 <- [1,125,null,{"value":"RAMCHARITMANAS CDS"}]
+1552618174503	Marionette	DEBUG	0 -> [0,126,"WebDriver:GetElementText",{"id":"242a9544-6977-4d2a-9303-efaf8879c1e7"}]
+1552618174512	Marionette	DEBUG	0 <- [1,126,null,{"value":""}]
+1552618174513	Marionette	DEBUG	0 -> [0,127,"WebDriver:GetElementText",{"id":"ed46133a-fe34-4454-992b-9634b49d4630"}]
+1552618174519	Marionette	DEBUG	0 <- [1,127,null,{"value":"MARKETING"}]
+1552618174520	Marionette	DEBUG	0 -> [0,128,"WebDriver:GetElementText",{"id":"5499dac3-b426-4076-b4e2-77167747b1f5"}]
+1552618174531	Marionette	DEBUG	0 <- [1,128,null,{"value":""}]
+1552618174532	Marionette	DEBUG	0 -> [0,129,"WebDriver:GetElementText",{"id":"734172eb-7fc4-4906-97c1-993b450fb94c"}]
+1552618174538	Marionette	DEBUG	0 <- [1,129,null,{"value":"AIR ARCHIVES"}]
+1552618174539	Marionette	DEBUG	0 -> [0,130,"WebDriver:GetElementText",{"id":"9c3626ba-43ab-478e-afed-9a82bc19deba"}]
+1552618174548	Marionette	DEBUG	0 <- [1,130,null,{"value":""}]
+1552618174550	Marionette	DEBUG	0 -> [0,131,"WebDriver:GetElementText",{"id":"009daaeb-08af-44de-8015-e8f0039eb867"}]
+1552618174559	Marionette	DEBUG	0 <- [1,131,null,{"value":""}]
+1552618174561	Marionette	DEBUG	0 -> [0,132,"WebDriver:GetElementText",{"id":"3def6afd-feb1-4354-8051-cf4868473308"}]
+1552618174563	Marionette	DEBUG	0 <- [1,132,null,{"value":"Mission"}]
+1552618174565	Marionette	DEBUG	0 -> [0,133,"WebDriver:GetElementText",{"id":"2bf65e81-cd22-475c-bbf7-be2a0e9ae3d4"}]
+1552618174576	Marionette	DEBUG	0 <- [1,133,null,{"value":"CEO's Desk"}]
+1552618174578	Marionette	DEBUG	0 -> [0,134,"WebDriver:GetElementText",{"id":"f923c9ed-250c-4347-acf3-927bbba6608c"}]
+1552618174580	Marionette	DEBUG	0 <- [1,134,null,{"value":"Prasar Bharti Board"}]
+1552618174582	Marionette	DEBUG	0 -> [0,135,"WebDriver:GetElementText",{"id":"75bce23f-96cd-4e28-a9ce-996c626819e4"}]
+1552618174586	Marionette	DEBUG	0 <- [1,135,null,{"value":"Prasar Bharti Act"}]
+1552618174588	Marionette	DEBUG	0 -> [0,136,"WebDriver:GetElementText",{"id":"4d440788-b713-46e4-8f67-ec8463fba7e7"}]
+1552618174590	Marionette	DEBUG	0 <- [1,136,null,{"value":"Secretariat"}]
+1552618174591	Marionette	DEBUG	0 -> [0,137,"WebDriver:GetElementText",{"id":"60874ace-9766-4625-8722-de87b135e08d"}]
+1552618174594	Marionette	DEBUG	0 <- [1,137,null,{"value":"Right to Information"}]
+1552618174595	Marionette	DEBUG	0 -> [0,138,"WebDriver:GetElementText",{"id":"32cf0f2a-d694-4fb9-8786-66ca295301c7"}]
+1552618174598	Marionette	DEBUG	0 <- [1,138,null,{"value":"Contact Us"}]
+1552618174600	Marionette	DEBUG	0 -> [0,139,"WebDriver:GetElementText",{"id":"1677055a-251d-46c0-90a1-68a30ab0a07b"}]
+1552618174604	Marionette	DEBUG	0 <- [1,139,null,{"value":"Disclaimer"}]
+1552618174605	Marionette	DEBUG	0 -> [0,140,"WebDriver:GetElementText",{"id":"4988db2d-5d92-4af0-8756-f9b1172cca52"}]
+1552618174608	Marionette	DEBUG	0 <- [1,140,null,{"value":"Facebook"}]
+1552618174609	Marionette	DEBUG	0 -> [0,141,"WebDriver:GetElementText",{"id":"a0b9313a-0e33-46a0-981f-18c907209303"}]
+1552618174613	Marionette	DEBUG	0 <- [1,141,null,{"value":"Twitter"}]
+1552618174615	Marionette	DEBUG	0 -> [0,142,"WebDriver:ExecuteScript",{"args":[],"newSandbox":false,"script":"\tvar performance = \twindow.performance ||\t\t\t\t\ ... t\tvar network \t= \tperformance.getEntries() || {};\t\t\t\t\t\treturn network;","scriptTimeout":null,"specialPowers":false}]
+1552618174654	Marionette	DEBUG	0 <- [1,142,null,{"value":[{"name":"http://www.allindiaradio.gov.in/Default.aspx","entryType":"navigation","startTime":0,"duration ... onStart":0,"requestStart":0,"responseStart":0,"responseEnd":4467,"transferSize":0,"encodedBodySize":0,"decodedBodySize":0}]}]
+1552618174744	Marionette	DEBUG	0 -> [0,143,"WebDriver:ExecuteScript",{"args":[],"newSandbox":false,"script":"var performance = window.performance || window.mozPe ... erformance || {}; var network = performance.getEntries() || {}; return network;","scriptTimeout":null,"specialPowers":false}]
+1552618174771	Marionette	DEBUG	0 <- [1,143,null,{"value":[{"name":"http://www.allindiaradio.gov.in/Default.aspx","entryType":"navigation","startTime":0,"duration ... onStart":0,"requestStart":0,"responseStart":0,"responseEnd":4467,"transferSize":0,"encodedBodySize":0,"decodedBodySize":0}]}]
+1552618174819	Marionette	DEBUG	0 -> [0,144,"WebDriver:FindElements",{"using":"css selector","value":"style"}]
+1552618174838	Marionette	DEBUG	0 <- [1,144,null,[{"element-6066-11e4-a52e-4f735466cecf":"d5919d06-1a6a-4863-972b-d358f748a214"},{"element-6066-11e4-a52e-4f735466 ... ecf":"85c41f13-353f-4545-b042-42ff9235e055"},{"element-6066-11e4-a52e-4f735466cecf":"30909214-e0ae-41da-89b7-e900a73b94c4"}]]
+1552618174839	Marionette	DEBUG	0 -> [0,145,"WebDriver:ExecuteScript",{"args":[],"newSandbox":false,"script":"return document.images;","scriptTimeout":null,"specialPowers":false}]
+1552618174872	Marionette	DEBUG	0 <- [1,145,null,{"value":[{"element-6066-11e4-a52e-4f735466cecf":"0f024281-c50a-4c67-b7ac-cd4d084d8161"},{"element-6066-11e4-a52e ... cf":"6ff4f6d6-7b0e-4d59-942c-6b6e30d2bb9c"},{"element-6066-11e4-a52e-4f735466cecf":"874908ef-102b-4b2a-8660-7894540f510c"}]}]
+1552618174873	Marionette	DEBUG	0 -> [0,146,"WebDriver:TakeScreenshot",{"full":false,"highlights":[],"id":null}]
+1552618174964	Marionette	DEBUG	0 <- [1,146,null,{"value":"iVBORw0KGgoAAAANSUhEUgAAA/QAAAK2CAYAAADgwtexAAAgAElEQVR4nOydd5wV1d2HfzNzyszcsg0WxN6CxkaxYO9Y6dIWlt67dAF ... 5xrLSZ1z4s4IW3j1NwoZlAIkVSUZFVGVlK/JjQ/7Qb5WRJRU0rSMkEqhwHJQSyHzUlghJElWOosoyqZhxf/Wn/oy+J/w8F52e2WW8xPgAAAABJRU5ErkJggg=="}]
+1552618184155	Marionette	DEBUG	0 -> [0,147,"WebDriver:FindElements",{"using":"css selector","value":"b"}]
+1552618194164	Marionette	DEBUG	0 <- [1,147,null,[]]
+1552618194167	Marionette	DEBUG	0 -> [0,148,"WebDriver:FindElements",{"using":"css selector","value":"i"}]
+1552618204176	Marionette	DEBUG	0 <- [1,148,null,[]]
+1552618204180	Marionette	DEBUG	0 -> [0,149,"WebDriver:FindElements",{"using":"css selector","value":"big"}]
+1552618214186	Marionette	DEBUG	0 <- [1,149,null,[]]
+1552618214192	Marionette	DEBUG	0 -> [0,150,"WebDriver:FindElements",{"using":"css selector","value":"big"}]
+1552618224203	Marionette	DEBUG	0 <- [1,150,null,[]]
+1552618224209	Marionette	DEBUG	0 -> [0,151,"WebDriver:FindElements",{"using":"css selector","value":"font"}]
+1552618234221	Marionette	DEBUG	0 <- [1,151,null,[]]
+1552618234291	Marionette	DEBUG	Closed connection 0
+1552634457139	Marionette	TRACE	Received observer notification xpcom-will-shutdown
+1552634457139	Marionette	DEBUG	Resetting recommended pref app.update.disabledForTesting
+1552634457139	Marionette	DEBUG	Resetting recommended pref apz.content_response_timeout
+1552634457140	Marionette	DEBUG	Resetting recommended pref browser.contentblocking.introCount
+1552634457140	Marionette	DEBUG	Resetting recommended pref browser.download.panel.shown
+1552634457140	Marionette	DEBUG	Resetting recommended pref browser.newtabpage.enabled
+1552634457140	Marionette	DEBUG	Resetting recommended pref browser.pagethumbnails.capturing_disabled
+1552634457140	Marionette	DEBUG	Resetting recommended pref browser.search.update
+1552634457140	Marionette	DEBUG	Resetting recommended pref browser.tabs.disableBackgroundZombification
+1552634457140	Marionette	DEBUG	Resetting recommended pref browser.tabs.warnOnCloseOtherTabs
+1552634457141	Marionette	DEBUG	Resetting recommended pref browser.tabs.warnOnOpen
+1552634457141	Marionette	DEBUG	Resetting recommended pref browser.usedOnWindows10.introURL
+1552634457141	Marionette	DEBUG	Resetting recommended pref browser.urlbar.suggest.searches
+1552634457141	Marionette	DEBUG	Resetting recommended pref datareporting.policy.dataSubmissionPolicyAccepted
+1552634457141	Marionette	DEBUG	Resetting recommended pref dom.disable_beforeunload
+1552634457141	Marionette	DEBUG	Resetting recommended pref dom.disable_open_during_load
+1552634457141	Marionette	DEBUG	Resetting recommended pref dom.file.createInChild
+1552634457141	Marionette	DEBUG	Resetting recommended pref dom.max_chrome_script_run_time
+1552634457141	Marionette	DEBUG	Resetting recommended pref dom.max_script_run_time
+1552634457142	Marionette	DEBUG	Resetting recommended pref extensions.getAddons.cache.enabled
+1552634457142	Marionette	DEBUG	Resetting recommended pref extensions.webservice.discoverURL
+1552634457142	Marionette	DEBUG	Resetting recommended pref network.http.prompt-temp-redirect
+1552634457142	Marionette	DEBUG	Resetting recommended pref network.http.speculative-parallel-limit
+1552634457142	Marionette	DEBUG	Resetting recommended pref security.fileuri.strict_origin_policy
+1552634457142	Marionette	DEBUG	Resetting recommended pref security.notification_enable_delay
+1552634457142	Marionette	DEBUG	Resetting recommended pref signon.autofillForms
+1552634457142	Marionette	DEBUG	Resetting recommended pref signon.rememberSignons
+1552634457142	Marionette	DEBUG	Resetting recommended pref toolkit.cosmeticAnimations.enabled
+1552634457142	Marionette	INFO	Stopped listening on port 39247
+1552634457142	Marionette	DEBUG	Remote service is inactive

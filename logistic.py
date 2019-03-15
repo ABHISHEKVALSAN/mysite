@@ -24,7 +24,7 @@ from pylab import scatter, show, legend, xlabel, ylabel
 
 X = genfromtxt('data_X.csv', delimiter=',',skip_header=1)
 Y = genfromtxt('data_Y.csv', delimiter=',',skip_header=1)
-Y = np.rint(Y)
+Y = np.rint(Y-0.1)
 
 
 # creating testing and training set
@@ -33,8 +33,11 @@ X_train,X_test,Y_train,Y_test = train_test_split(X,Y,test_size=0.33)
 # train scikit learn model
 clf = LogisticRegression()
 clf.fit(X_train,Y_train)
+show()
 print('score Scikit learn: ', clf.score(X_test,Y_test))
-# visualize data, uncomment "show()" to run it
+coef=clf.coef_[0]
+print(coef)
+exit()
 pos = where(Y == 1)
 neg = where(Y == 0)
 scatter(X[pos, 0], X[pos, 1], marker='o', c='b')
@@ -42,7 +45,7 @@ scatter(X[neg, 0], X[neg, 1], marker='x', c='r')
 xlabel('Exam 1 score')
 ylabel('Exam 2 score')
 legend(['Not Admitted', 'Admitted'])
-show()
+
 
 initial_theta = [0 for i in range(12)]
 alpha = 0.1
