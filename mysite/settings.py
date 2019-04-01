@@ -50,8 +50,10 @@ ALLOWED_HOSTS = ['*']
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 INSTALLED_APPS = [
+		'etherfeeds.apps.EtherfeedsConfig',
 		'pageEval.apps.PageevalConfig',
 		'pollSite.apps.PollsiteConfig',
+    	'web3auth.apps.Web3AuthConfig',
     	'django.contrib.admin',
     	'django.contrib.auth',
     	'django.contrib.contenttypes',
@@ -104,6 +106,10 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
+AUTHENTICATION_BACKENDS = [
+'django.contrib.auth.backends.ModelBackend',
+'web3auth.backend.Web3Backend'
+]
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -140,5 +146,4 @@ USE_TZ = True
 
 
 STATIC_URL ='/static/'
-#STATIC_ROOT='/home/git/mysite/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "/static/")
