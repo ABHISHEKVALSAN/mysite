@@ -1,13 +1,165 @@
-<!-- etherfeeds -->
 {% load static %}
 <html>
-<head>
-<title> Introduction</title>
-<link rel="stylesheet" type="text/css" href="{% static 'etherfeeds/css/bootstrap.css' %}" rel="stylesheet" id="bootstrap-css">
-<script src="{% static  'etherfeeds/js/bootstrap.min.js' %}"></script>
-<script src="{% static 'etherfeeds/js/bootstrap.js' %}"></script>
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-<style media="screen">
+	<head>
+		<title> Introduction</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'pollSite/css/bootstrap.css' %}" rel="stylesheet" id="bootstrap-css">
+		<script src="{% static  'pollSite/js/bootstrap.min.js' %}"></script>
+		<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<style media="screen">
+		.inputGroup {
+		  background-color: #fff;
+		  display: block;
+		  margin: 10px 0;
+		  position: relative;
+		}
+		.inputGroup label {
+		  padding: 12px 30px;
+		  width: 100%;
+		  display: block;
+		  text-align: left;
+		  color: #3C454C;
+		  cursor: pointer;
+		  position: relative;
+		  z-index: 2;
+		  transition: color 200ms ease-in;
+		  overflow: hidden;
+		}
+		.inputGroup label:before {
+		  width: 10px;
+		  height: 10px;
+		  border-radius: 50%;
+		  content: '';
+		  background-color: #966;
+		  position: absolute;
+		  left: 50%;
+		  top: 50%;
+		  -webkit-transform: translate(-50%, -50%) scale3d(1, 1, 1);
+		          transform: translate(-50%, -50%) scale3d(1, 1, 1);
+		  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+		  opacity: 0;
+		  z-index: -1;
+		}
+		.inputGroup label:after {
+		  width: 32px;
+		  height: 32px;
+		  content: '';
+		  border: 2px solid #D1D7DC;
+		  background-color: #fff;
+		  background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
+		  background-repeat: no-repeat;
+		  background-position: 2px 3px;
+		  border-radius: 50%;
+		  z-index: 2;
+		  position: absolute;
+		  right: 30px;
+		  top: 50%;
+		  -webkit-transform: translateY(-50%);
+		          transform: translateY(-50%);
+		  cursor: pointer;
+		  transition: all 200ms ease-in;
+		}
+		.inputGroup input:checked ~ label {
+		  color: #fff;
+		}
+		.inputGroup input:checked ~ label:before {
+		  -webkit-transform: translate(-50%, -50%) scale3d(56, 56, 1);
+		          transform: translate(-50%, -50%) scale3d(56, 56, 1);
+		  opacity: 1;
+		}
+		.inputGroup input:checked ~ label:after {
+		  background-color: #54E0C7;
+		  border-color: #54E0C7;
+		}
+		.inputGroup input {
+		  width: 32px;
+		  height: 32px;
+		  order: 1;
+		  z-index: 2;
+		  position: absolute;
+		  right: 30px;
+		  top: 50%;
+		  -webkit-transform: translateY(-50%);
+		          transform: translateY(-50%);
+		  cursor: pointer;
+		  visibility: hidden;
+		}
+		.inputGroup1 {
+		  background-color: #fff;
+		  display: block;
+		  margin: 10px 0;
+		  position: relative;
+		}
+		.inputGroup1 label {
+		  padding: 12px 30px;
+		  width: 100%;
+		  display: block;
+		  text-align: left;
+		  color: #3C454C;
+		  cursor: pointer;
+		  position: relative;
+		  z-index: 2;
+		  transition: color 200ms ease-in;
+		  overflow: hidden;
+		}
+		.inputGroup1 label:before {
+		  width: 10px;
+		  height: 10px;
+		  border-radius: 50%;
+		  content: '';
+		  background-color: #990;
+		  position: absolute;
+		  left: 50%;
+		  top: 50%;
+		  -webkit-transform: translate(-50%, -50%) scale3d(1, 1, 1);
+		          transform: translate(-50%, -50%) scale3d(1, 1, 1);
+		  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+		  opacity: 0;
+		  z-index: -1;
+		}
+		.inputGroup1 label:after {
+		  width: 32px;
+		  height: 32px;
+		  content: '';
+		  border: 2px solid #D1D7DC;
+		  background-color: #fff;
+		  background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
+		  background-repeat: no-repeat;
+		  background-position: 2px 3px;
+		  border-radius: 50%;
+		  z-index: 2;
+		  position: absolute;
+		  right: 30px;
+		  top: 50%;
+		  -webkit-transform: translateY(-50%);
+		          transform: translateY(-50%);
+		  cursor: pointer;
+		  transition: all 200ms ease-in;
+		}
+		.inputGroup1 input:checked ~ label {
+		  color: #fff;
+		}
+		.inputGroup1 input:checked ~ label:before {
+		  -webkit-transform: translate(-50%, -50%) scale3d(56, 56, 1);
+		          transform: translate(-50%, -50%) scale3d(56, 56, 1);
+		  opacity: 1;
+		}
+		.inputGroup1 input:checked ~ label:after {
+		  background-color: #54E0C7;
+		  border-color: #54E0C7;
+		}
+		.inputGroup1 input {
+		  width: 32px;
+		  height: 32px;
+		  order: 1;
+		  z-index: 2;
+		  position: absolute;
+		  right: 30px;
+		  top: 50%;
+		  -webkit-transform: translateY(-50%);
+		          transform: translateY(-50%);
+		  cursor: pointer;
+		  visibility: hidden;
+		}
 	/* General Style */
 	@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,700);
 	@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
@@ -497,6 +649,7 @@
 	.button-3d:active:after {
 	    left: 60px;
 	}
+	/* Button 3e */
 	.button-3e {
 	    padding: 25px 120px 25px 60px;
 	    overflow: hidden;
@@ -526,6 +679,7 @@
 	.button-3e:hover:after {
 	    width: 35%;
 	}
+	/* Button 4 */
 	.button-4 {
 	    border-radius: 50px;
 	    border: 3px solid #fff;
@@ -552,6 +706,7 @@
 	.button-4:active>.fa {
 	    color: #902866;
 	}
+	/* Button 4a */
 	.button-4a>.fa {
 	    left: 130%;
 	    top: 0;
@@ -559,6 +714,7 @@
 	.button-4a:hover>.fa {
 	    left: 80%;
 	}
+	/* Button 4b */
 	.button-4b>.fa {
 	    left: -50%;
 	    top: 0;
@@ -566,6 +722,7 @@
 	.button-4b:hover>.fa {
 	    left: 10%;
 	}
+	/* Button 4c */
 	.button-4c>.fa {
 	    left: 70%;
 	    opacity: 0;
@@ -575,6 +732,7 @@
 	    left: 80%;
 	    opacity: 1;
 	}
+	/* Button 4d */
 	.button-4d>.fa {
 	    left: 30%;
 	    opacity: 0;
@@ -584,6 +742,7 @@
 	    left: 10%;
 	    opacity: 1;
 	}
+	/* Button 5 */
 	.button-5 {
 	    background: #165F8E;
 	    color: #fff;
@@ -624,6 +783,7 @@
 	.button-5:active>.fa {
 	    color: #53AFE8;
 	}
+	/* Button 5a */
 	.button-5a:hover span {
 	    -webkit-transform: translateY(300%);
 	    -moz-transform: translateY(300%);
@@ -637,6 +797,7 @@
 	.button-5a:hover>.fa {
 	    top: 0;
 	}
+	/* Button 5b */
 	.button-5b:hover span {
 	    -webkit-transform: translateX(200%);
 	    -moz-transform: translateX(200%);
@@ -650,6 +811,8 @@
 	.button-5b:hover>.fa {
 	    left: 0;
 	}
+
+	/* Special trash effect */
 	.trash-effect {
 	    position: relative;
 	    max-width: 320px;
@@ -719,25 +882,125 @@
 	        transform: rotate(0deg);
 	    }
 	}
+	.form-style-8{
+		font-family: 'Open Sans Condensed', arial, sans;
+		width: 500px;
+		padding: 30px;
+		background: #FFFFFF;
+		margin: 50px auto;
+		box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+		-moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+		-webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+	}
+	.form-style-8 h2{
+		background: #4D4D4D;
+		text-transform: uppercase;
+		font-family: 'Open Sans Condensed', sans-serif;
+		color: #fff;
+		font-size: 18px;
+		font-weight: 100;
+		padding: 20px;
+		margin: -30px -30px 30px -30px;
+	}
+	.form-style-8 input[type="text"],
+	.form-style-8 input[type="date"],
+	.form-style-8 input[type="datetime"],
+	.form-style-8 input[type="email"],
+	.form-style-8 input[type="number"],
+	.form-style-8 input[type="search"],
+	.form-style-8 input[type="time"],
+	.form-style-8 input[type="url"],
+	.form-style-8 input[type="password"],
+	.form-style-8 textarea,
+	.form-style-8 select{
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		outline: none;
+		display: block;
+		width: 100%;
+		padding: 7px;
+		border: none;
+		border-bottom: 1px solid #ddd;
+		background: transparent;
+		margin-bottom: 10px;
+		font: 16px Arial, Helvetica, sans-serif;
+		height: 45px;}
+	.form-style-8 textarea{
+		resize:none;
+		overflow: hidden;
+	}
+	.form-style-8 input[type="button"],
+	.form-style-8 input[type="submit"]{
+		-moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+		-webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+		box-shadow: inset 0px 1px 0px 0px #45D6D6;
+		background-color: #2CBBBB;
+		border: 1px solid #27A0A0;
+		display: inline-block;
+		cursor: pointer;
+		color: #FFFFFF;
+		font-family: 'Open Sans Condensed', sans-serif;
+		font-size: 14px;
+		padding: 8px 18px;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+	.form-style-8 input[type="button"]:hover,
+	.form-style-8 input[type="submit"]:hover {
+		background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+		background-color:#34CACA;
+	}
 </style>
-</head>
-<body>
-<div class="container">
-<div class="jumbotron text-xs-center">
-<center>
-<h1>Company Employee feedbacks</h1>
-</center>
-</div>
-
-<section class="color-pattern-5" style="width:40%;">
-  <div>
-		<a href="{% url 'etherfeeds:dashboard' %}">
-    <button class="button button-4 button-4c icon-arrow-right"><i class="fa fa-arrow-right"></i>Start</button>
-		</a>
-	</div>
-</section>
-
-</div>
-<!-- /container -->
-</body>
+	</head>
+	<body>
+		<div class="container">
+			<div class="jumbotron text-xs-center">
+				<center>
+					<h2>Enter your details to start the survey.</h2>
+				</center>
+			</div>
+			<div class="form-style-8">
+  			<h2>Enter your details</h2>
+  				<form action=="{% url 'pollSite:newPerson' %}" method="post">
+						{% csrf_token %}
+						FULL NAME
+    				<input type="text" name="Name" placeholder="Jon Snow" required="True"/>
+						AGE
+    				<input type="number" name="age" placeholder="24" required="True"/>
+						GENDER
+						<div class="inputGroup">
+							<input type="radio" id="male" name="gender" value="1" required="True">
+							<label for="male">Male</label>
+						</div>
+						<div class="inputGroup">
+  						<input type="radio" id="female" name="gender" value="0" required="True">
+							<label for="female">Female</label>
+						</div>
+						HIGHEST EDUCATIONAL QUALIFICATION
+						<div class="inputGroup1">
+							<input type="radio" id="0" name="education" value="0" required="True">
+							<label for="0">Primary education or below</label>
+						</div>
+						<div class="inputGroup1">
+							<input type="radio" id="1" name="education" value="1" required="True">
+							<label for="1">Secondary Education (10th)</label>
+						</div>
+						<div class="inputGroup1">
+  						<input type="radio" id="2" name="education" value="2" required="True">
+							<label for="2">Higher secondary education (12th)</label>
+						</div>
+						<div class="inputGroup1">
+  						<input type="radio" id="3" name="education" value="3" required="True">
+							<label for="3">Bachelors</label>
+						</div>
+						<div class="inputGroup1">
+  						<input type="radio" id="4" name="education" value="4" required="True">
+							<label for="4">Masters or above</label>
+						</div>
+    				<input type="submit" value="Submit" />
+  				</form>
+			</div>
+		</div>
+	</body>
 </html>
