@@ -53,13 +53,13 @@ INSTALLED_APPS = [
 		'etherfeeds.apps.EtherfeedsConfig',
 		'pageEval.apps.PageevalConfig',
 		'pollSite.apps.PollsiteConfig',
-    	'web3auth.apps.Web3AuthConfig',
     	'django.contrib.admin',
     	'django.contrib.auth',
     	'django.contrib.contenttypes',
     	'django.contrib.sessions',
     	'django.contrib.messages',
     	'django.contrib.staticfiles',
+		'web3auth.apps.Web3AuthConfig',
 ]
 
 MIDDLEWARE = [

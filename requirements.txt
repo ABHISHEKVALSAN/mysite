@@ -1,3 +1,15 @@
+bumpversion==0.5.3
+wheel==0.30.0
+sphinx==1.7.5
+sphinx-rtd-theme==0.4.0
+coverage==4.4.1
+mock>=1.0.1
+flake8>=2.1.0
+tox>=1.7.0
+codecov>=2.0.0
+ethereum==2.3.1
+rlp==0.6.0
+eth_utils>=1.0.3
 beautifulsoup4==4.6.3
 bs4==0.0.1
 cycler==0.10.0
