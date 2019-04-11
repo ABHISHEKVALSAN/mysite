@@ -54,7 +54,7 @@ def login_api(request):
 					return JsonResponse({'success': False, 'error': error,'redirect_url':"{% url 'etherfeeds:dashboard' %}"})
 			else:
 				return JsonResponse({'success': False, 'error': json.loads(form.errors.as_json()),'redirect_url':"{% url 'etherfeeds:dashboard' %}"})
-'''
+
 @require_http_methods(["POST"])
 def signup_api(request):
     if not app_settings.WEB3AUTH_SIGNUP_ENABLED:
@@ -101,4 +101,3 @@ def signup_view(request, template_name='web3auth/signup.html'):
     return render(request,
                   template_name,
                   {'form': form})
-'''

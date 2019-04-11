@@ -7,10 +7,12 @@ from django.shortcuts import render, redirect
 from . import views
 app_name = 'etherfeeds'
 def auto_login(request):
-    if not request.user.is_authenticated:
-        return render(request, 'web3auth/autologin.html')
-    else:
-        return redirect('/admin/login')
+	if not request.user.is_authenticated:
+		return render(request, 'web3auth/autologin.html')
+	elif request.user.is_superuser:
+		return redirect('/etherfeeds/dashboard/')
+	else:
+		return redirect('/etherfeeds/dashboard/')
 urlpatterns = [
     url(r'^$', views.index, name='index'),
 	url(r'^auto_login/', auto_login, name='auto_login'),

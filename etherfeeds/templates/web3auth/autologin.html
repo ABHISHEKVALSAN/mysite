@@ -22,9 +22,12 @@ ready(function () {
 
 				var login_url = "{% url 'web3auth:login_api' %}";
 				web3Login(login_url, console.log, console.log, console.log, console.log, console.log, function (resp) {
-					window.location.replace("{% url 'etherfeeds:dashboard' %}");
+					alert(resp.redirect_url);
+					window.location.replace("{url 'etherfeeds:dashboard'}");
 				});
+
 			}
+
 		});
 	}
 	else {
