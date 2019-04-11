@@ -32,14 +32,14 @@ def login_api(request):
 	if request.method == 'GET':
 		token = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for i in range(32))
 		request.session['login_token'] = token
-		args={'data': token, 'success': True}
+		args={'data': token, 'success': True,'redirect_url':"{% url 'etherfeeds:dashboard' %}"}
 		return JsonResponse(args)
 	else:
 		token = request.session.get('login_token')
 		if not token:
 			return JsonResponse({'error': _(
 			"No login token in session, please request token again by sending GET request to this url"),
-			'success': False})
+			'success': False,'redirect_url':"{% url 'etherfeeds:dashboard' %}"})
 		else:
 			form = LoginForm(token, request.POST)
 			if form.is_valid():
@@ -48,12 +48,12 @@ def login_api(request):
 				user = authenticate(request, token=token, address=address, signature=signature)
 				if user:
 					login(request, user, 'web3auth.backend.Web3Backend')
-					return JsonResponse({'success': True, 'redirect_url': get_redirect_url(request)})
+					return JsonResponse({'success': True, 'redirect_url':"{% url 'etherfeeds:dashboard' %}"})
 				else:
 					error = _("Can't find a user for the provided signature with address {address}").format(address=address)
-					return JsonResponse({'success': False, 'error': error})
+					return JsonResponse({'success': False, 'error': error,'redirect_url':"{% url 'etherfeeds:dashboard' %}"})
 			else:
-				return JsonResponse({'success': False, 'error': json.loads(form.errors.as_json())})
+				return JsonResponse({'success': False, 'error': json.loads(form.errors.as_json()),'redirect_url':"{% url 'etherfeeds:dashboard' %}"})
 '''
 @require_http_methods(["POST"])
 def signup_api(request):

@@ -19,9 +19,10 @@ ready(function () {
 				alert("Please unlock your web3 provider (probably, Metamask)")
 			}
 			else{
+
 				var login_url = "{% url 'web3auth:login_api' %}";
 				web3Login(login_url, console.log, console.log, console.log, console.log, console.log, function (resp) {
-					window.location.href = "{% url 'etherfeeds:dashboard' %}";;
+					window.location.replace("{% url 'etherfeeds:dashboard' %}");
 				});
 			}
 		});
