@@ -46,10 +46,14 @@ def thanks(request):
 	return render(request,'etherfeeds/thanks.html',args)
 def feeds(request):
 	questions=Question.objects.all()
+	pub_date=Question.objects.values('pub_date')
+	time_exp_days=Question.objects.values('time_exp_days')
+	time_exp_hours=Question.objects.values('time_exp_hours')
+	time_exp_minutes=Question.objects.values('time_exp_minutes')
 	args={'questions':questions}
 	return render(request,'etherfeeds/feeds.html',args)
-def question_view(request,questionid):
-	questionObj	= get_object_or_404(siteUrl, pk=pk1)
-	answerList	= Answer.object.get(question=questionObj)
+def question_view(request,pk):
+	questionObj	= get_object_or_404(Question, pk=pk)
+	answerList	= Answer.objects.filter(question=questionObj)
 	args={'question':questionObj,'answers':answerList}
 	return render(request,'etherfeeds/question_view.html',args)

@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
-
+import datetime
 # Create your models here.
 
 class Users(models.Model):
@@ -16,6 +16,7 @@ class Question(models.Model):
 	time_exp_days = models.IntegerField(default=0)
 	time_exp_hours = models.IntegerField(default=0)
 	time_exp_minutes = models.IntegerField(default=0)
+	exp_time = models.DateTimeField('date expiring',default=datetime.datetime.now()+datetime.timedelta(days=10))
 	etherSpent	= models.IntegerField(default=0)
 	status	= models.IntegerField(default=1)
 	user = models.ForeignKey(Users, on_delete=models.CASCADE,default=None)
