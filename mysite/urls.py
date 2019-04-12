@@ -22,5 +22,4 @@ urlpatterns = [
 	url(r'pageEval/', include('pageEval.urls')),
 	url(r'web3auth/',include(web3auth_urls)),
     url(r'admin/', admin.site.urls),
-
 ]

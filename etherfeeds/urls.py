@@ -19,5 +19,6 @@ urlpatterns = [
 	url(r'dashboard/',views.dashboard,name='dashboard'),
 	url(r'createpoll/',views.createpoll,name='createpoll'),
 	url(r'addmember/',views.addmember,name='addmember'),
+	url(r'addQuestion',views.addQuestion,name='addQuestion'),
 	url(r'thanks/',views.thanks,name='thanks'),
 ]

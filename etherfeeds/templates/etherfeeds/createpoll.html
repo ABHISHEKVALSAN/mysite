@@ -962,12 +962,12 @@
 			</div>
 			<div class="form-style-8">
   			<h2>Ask a question</h2>
-  				<form action=="{% url 'etherfeeds:dashboard' %}" method="post">
+  				<form action="{% url 'etherfeeds:addQuestion' %}" method="post">
 						{% csrf_token %}
 						Question
-    				<input type="text" name="Name" placeholder="Which topic to publish?" required="True"/>
+    				<input type="text" name="question" placeholder="Which topic to publish?" required="True"/>
 						Bounty in ETH
-    				<input type="number" name="age" placeholder="24" required="True"/><br/>
+    				<input type="number" step="0.001" name="age" placeholder="24" required="True"/><br/>
 						 <div class="time-descrip">Day(s)</div> <br/>
 						<input class="question-input" id="time_exp_days" type="number" min="0" max="20" required="True">
 						<div class="time-descrip">Hour(s)</div> <br/>
