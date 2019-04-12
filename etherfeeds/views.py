@@ -41,6 +41,12 @@ def addQuestion(request):
 	time_exp_days=time_exp_days,time_exp_hours=time_exp_hours,time_exp_minutes=time_exp_minutes,\
 	user=user,exp_time=exp_time)
 	return HttpResponseRedirect(reverse('etherfeeds:dashboard'))
+def addAnswer(request,questionId):
+	answer=request.POST["newAnswer"]
+	questionObj=get_object_or_404(Question,pk=questionId)
+	Answer.objects.create(question=questionObj,answer_text=answer)
+	return HttpResponseRedirect(reverse('etherfeeds:question_view', args=(questionObj.id,)))
+
 def thanks(request):
 	args={}
 	return render(request,'etherfeeds/thanks.html',args)

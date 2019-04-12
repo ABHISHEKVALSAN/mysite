@@ -992,18 +992,27 @@
 						{%else%}
 							<div class="form-style-8">
 								<b>Upvotes = {{upvotes}}<b><br>
-								<b>Downvote = {{downvotes}}<b><br>
+								<b>Downvote = {{downvotes}}<b><br><br>
+									You have alreay voted for this answer!!!
 							</div>
 						{%endif%}
 				</li>
 			{%endfor%}
 		</ul>
+		<div class="form-style-8">
+		ADD YOUR CUSTOM ANSWER
+		<form action="{% url 'etherfeeds:addAnswer' question.id %}" method="post">
+			{% csrf_token %}
+				<input type="text" id="upvote" name="newAnswer">
+				<label for="newAnswer" ><textarea name="paragraph_text" cols="50" rows="10"></textarea></label><br>
+				<input type="submit" value="Submit">
+		</form>
+		</div>
 			<section class="color-pattern-5" style="width:40%;">
 			  <div>
 					<a href="{% url 'etherfeeds:dashboard' %}">
 						<button class="button button-4 button-4c icon-arrow-right"><i class="fa fa-arrow-right"></i>Dashboard</button>
 					</a>
-
 				</div>
 			</section>
 		</div>

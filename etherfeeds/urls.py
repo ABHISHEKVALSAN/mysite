@@ -22,6 +22,7 @@ urlpatterns = [
 	url(r'addQuestion',views.addQuestion,name='addQuestion'),
 	url(r'feeds/',views.feeds,name='feeds'),
 	url(r'thanks/',views.thanks,name='thanks'),
+	url(r'addAnswers/(?P<questionId>[0-9]+)',views.addAnswer,name='addAnswer'),
 	url(r'question_view/(?P<pk>[0-9]+)',views.question_view,name='question_view'),
 	url(r'(?P<answerId>[0-9]+)/(?P<questionId>[0-9]+)/answerUpDown/',views.answerUpDown,name='answerUpDown'),
 ]
