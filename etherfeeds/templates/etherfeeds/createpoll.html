@@ -965,15 +965,15 @@
   				<form action="{% url 'etherfeeds:addQuestion' %}" method="post">
 						{% csrf_token %}
 						Question
-    				<input type="text" name="question" placeholder="Which topic to publish?" required="True"/>
+    				<input type="text" name="question" id="question" placeholder="Which topic to publish?" required="True"/>
 						Bounty in ETH
-    				<input type="number" step="0.001" name="age" placeholder="24" required="True"/><br/>
-						 <div class="time-descrip">Day(s)</div> <br/>
-						<input class="question-input" id="time_exp_days" type="number" min="0" max="20" required="True">
+    				<input type="number" id="ether" step="0.001" name="ether" placeholder="24" required="True"/><br/>
+						<div class="time-descrip">Day(s)</div> <br/>
+						<input class="question-input" id="time_exp_days" name="time_exp_days" type="number" min="0" max="20" required="True">
 						<div class="time-descrip">Hour(s)</div> <br/>
-          	<input class="question-input" id="time_exp_hours" type="number" min="0" max="23" required="True">
+          	<input class="question-input" id="time_exp_hours" name="time_exp_hours" type="number" min="0" max="23" required="True">
 						<div class="time-descrip">Minute(s)</div> <br/>
-          	<input class="question-input" id="time_exp_minutes" type="number" min="0" max="59" required="True">
+          	<input class="question-input" id="time_exp_minutes" name="time_exp_minutes" type="number" min="0" max="59" required="True">
     				<input type="submit" value="Submit" />
   				</form>
 			</div>

@@ -20,5 +20,7 @@ urlpatterns = [
 	url(r'createpoll/',views.createpoll,name='createpoll'),
 	url(r'addmember/',views.addmember,name='addmember'),
 	url(r'addQuestion',views.addQuestion,name='addQuestion'),
+	url(r'feeds/',views.feeds,name='feeds'),
 	url(r'thanks/',views.thanks,name='thanks'),
+	url(r'question_view/(?P<pk>[0-9]+)',views.thanks,name='thanks'),
 ]
