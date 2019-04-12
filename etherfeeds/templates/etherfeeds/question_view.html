@@ -160,6 +160,20 @@
 		  cursor: pointer;
 		  visibility: hidden;
 		}
+		.arrow-up {
+			width: 0;
+			height: 0;
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			border-bottom: 5px solid black;
+		}
+		.arrow-down {
+			width: 0;
+			height: 0;
+			border-left: 20px solid transparent;
+			border-right: 20px solid transparent;
+			border-top: 20px solid #f00;
+}
 	/* General Style */
 	@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,700);
 	@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
@@ -951,7 +965,7 @@
 		background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
 		background-color:#34CACA;
 	}
-</style>
+		</style>
 	</head>
 	<body>
 		<div class="container">
@@ -961,9 +975,26 @@
 				</center>
 			</div>
 			<ul>
-			{%for answer in answers%}
+			{%for answer,status,upvotes,downvotes in answerList%}
 				<li>
 						<h3>{{answer.answer_text}}</h3>
+						{%if status is 1%}
+						<div class="form-style-8">
+						<form action="{% url 'etherfeeds:answerUpDown' answer.id question.id %}" method="post">
+							{% csrf_token %}
+							<input type="radio" id="upvote" name="answer{{answer.id}}" value="1">
+							<label for="upvote" >Upvote </label><br>
+							<input type="radio" id="downvote" name="answer{{answer.id}}" value="0">
+							<label  for="downvote" >Downvote</label><br>
+							<input type="submit" value="Submit">
+						</form>
+						</div>
+						{%else%}
+							<div class="form-style-8">
+								<b>Upvotes = {{upvotes}}<b><br>
+								<b>Downvote = {{downvotes}}<b><br>
+							</div>
+						{%endif%}
 				</li>
 			{%endfor%}
 		</ul>
@@ -972,6 +1003,7 @@
 					<a href="{% url 'etherfeeds:dashboard' %}">
 						<button class="button button-4 button-4c icon-arrow-right"><i class="fa fa-arrow-right"></i>Dashboard</button>
 					</a>
+
 				</div>
 			</section>
 		</div>

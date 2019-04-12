@@ -961,11 +961,11 @@
 				</center>
 			</div>
 			<ul>
-			{%for question in questions%}
+			{%for question,time in questions%}
 				<li>
 					<a href="{% url 'etherfeeds:question_view' question.id %}">
 						<h3>{{question.question_text}}</h3>
-
+						<h3>{{time}}</h3>
 					</a>
 				</li>
 			{%endfor%}

@@ -26,3 +26,6 @@ class Answer(models.Model):
 	answer_text = models.CharField(max_length=200,default="")
 	upvotes = models.IntegerField(default=0)
 	downvotes = models.IntegerField(default=0)
+class AnswerEntries(models.Model):
+	user = models.ForeignKey(Users, on_delete=models.CASCADE,default=None)
+	answer = models.ForeignKey(Answer, on_delete=models.CASCADE,default=None)
