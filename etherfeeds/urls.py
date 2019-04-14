@@ -9,8 +9,6 @@ app_name = 'etherfeeds'
 def auto_login(request):
 	if not request.user.is_authenticated:
 		return render(request, 'web3auth/autologin.html')
-	elif request.user.is_superuser:
-		return redirect('/etherfeeds/dashboard/')
 	else:
 		return redirect('/etherfeeds/dashboard/')
 urlpatterns = [
@@ -18,6 +16,7 @@ urlpatterns = [
 	url(r'^auto_login/', auto_login, name='auto_login'),
 	url(r'dashboard/',views.dashboard,name='dashboard'),
 	url(r'createpoll/',views.createpoll,name='createpoll'),
+	url(r'memberProposal/',views.memberProposal,name='memberProposal'),
 	url(r'addmember/',views.addmember,name='addmember'),
 	url(r'addQuestion',views.addQuestion,name='addQuestion'),
 	url(r'feeds/',views.feeds,name='feeds'),

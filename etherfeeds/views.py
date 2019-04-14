@@ -4,19 +4,21 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
-from .models import Users,Question,HashList,Answer,AnswerEntries
+from .models import Users,Question,HashList,Answer,AnswerEntries,memberProposal
 import datetime
-
-
+from .EtherFeeds import authUser,addUser
 def index(request):
 	args={}
 	return render(request, 'etherfeeds/index.html', args)
 def dashboard(request):
-	if request.user:
+	if authUser(str(request.user)):
+		addUser('0x715f6885102c954077956EF4Eb36d6BfD1C3DE73')
 		args={'user':request.user}
+		return render(request,'etherfeeds/dashboard.html',args)
 	else:
-		args={}
-	return render(request,'etherfeeds/dashboard.html',args)
+		args={'error_message':"You are still not a member of the compnay"}
+		request.session.clear()
+		return HttpResponseRedirect(reverse('etherfeeds:index'))
 def createpoll(request):
 	args={}
 	return render(request,'etherfeeds/createpoll.html',args)
@@ -46,7 +48,6 @@ def addAnswer(request,questionId):
 	questionObj=get_object_or_404(Question,pk=questionId)
 	Answer.objects.create(question=questionObj,answer_text=answer)
 	return HttpResponseRedirect(reverse('etherfeeds:question_view', args=(questionObj.id,)))
-
 def thanks(request):
 	args={}
 	return render(request,'etherfeeds/thanks.html',args)
@@ -88,3 +89,6 @@ def answerUpDown(request,answerId,questionId):
 	answerObj.save()
 	newVote=AnswerEntries.objects.create(answer=answerObj,user=user)
 	return HttpResponseRedirect(reverse('etherfeeds:question_view', args=(questionObj.id,)))
+def memberProposal(request):
+	proposer	= request.user
+	proposalFor	= request.POST['publicAddr']
