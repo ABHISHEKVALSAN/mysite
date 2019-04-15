@@ -13,18 +13,22 @@ function ready(fn) {
 	}
 }
 ready(function () {
+	console.log("yo1")
 	if (typeof web3 !== 'undefined') {
+		console.log("yo2")
+
 		checkWeb3(function (loggedIn) {
 			if (!loggedIn) {
 				alert("Please unlock your web3 provider (probably, Metamask)")
 			}
 			else{
-
 				var login_url = "{% url 'web3auth:login_api' %}";
 				web3Login(login_url, console.log, console.log, console.log, console.log, console.log, function (resp) {
+					console.log("yo3");
 					console.log(resp.redirect_url);
-					window.location.replace("{url 'etherfeeds:dashboard'}");
+					window.location.replace(resp.redirect_url);
 				});
+				console.log("yo4");
 			}
 		});
 	}
@@ -33,4 +37,5 @@ ready(function () {
   }
 });
 </script>
+<a href="{% url 'etherfeeds:index' %}">You are not a user yet!!</a>
 {% endblock javascript %}

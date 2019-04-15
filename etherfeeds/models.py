@@ -31,6 +31,8 @@ class Answer(models.Model):
 class AnswerEntries(models.Model):
 	user = models.ForeignKey(Users, on_delete=models.CASCADE,default=None)
 	answer = models.ForeignKey(Answer, on_delete=models.CASCADE,default=None)
+	question_id = models.IntegerField(default=0)
+	claimed = models.IntegerField(default=0)
 	ansEntHash = models.CharField(max_length=200,default="0x0")
 class memberProposal(models.Model):
 	member=models.CharField(max_length=200)

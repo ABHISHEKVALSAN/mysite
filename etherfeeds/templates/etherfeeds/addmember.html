@@ -960,15 +960,47 @@
 					<h2>Member Proposal</h2>
 				</center>
 			</div>
-			<div class="form-style-8">
-  			<h2>Add New Member</h2>
-  				<form action="{% url 'etherfeeds:memberProposal' %}" method="post">
-						{% csrf_token %}
-							Enter the address of the new member
-    				<input type="text" name="publicAddr" placeholder="eg. 0x31373c75f5Da61C08027c7aC5B675Afa3b3CD990 " required="True"/>
-						<input type="submit" value="Submit" />
-  				</form>
+				<div class="form-style-8">
+					<h2>Add some info about new Member</h2>
+						<form action=="{% url 'etherfeeds:memberProposal' %}" method="post">
+							{% csrf_token %}
+							MEMBER ADDRESS
+							<input type="text" name="publicAddr" placeholder="0xfa4E1d39e2E2C65adb26d24b8B10b85686e640fe" required="True"/>
+							AGE
+							<input type="number" name="age" placeholder="24" required="True"/>
+							GENDER
+							<div class="inputGroup">
+								<input type="radio" id="male" name="gender" value="1" required="True">
+								<label for="male">Male</label>
+							</div>
+							<div class="inputGroup">
+								<input type="radio" id="female" name="gender" value="0" required="True">
+								<label for="female">Female</label>
+							</div>
+							HIGHEST EDUCATIONAL QUALIFICATION
+							<div class="inputGroup1">
+								<input type="radio" id="0" name="education" value="0" required="True">
+								<label for="0">Primary education or below</label>
+							</div>
+							<div class="inputGroup1">
+								<input type="radio" id="1" name="education" value="1" required="True">
+								<label for="1">Secondary Education (10th)</label>
+							</div>
+							<div class="inputGroup1">
+								<input type="radio" id="2" name="education" value="2" required="True">
+								<label for="2">Higher secondary education (12th)</label>
+							</div>
+							<div class="inputGroup1">
+								<input type="radio" id="3" name="education" value="3" required="True">
+								<label for="3">Bachelors</label>
+							</div>
+							<div class="inputGroup1">
+								<input type="radio" id="4" name="education" value="4" required="True">
+								<label for="4">Masters or above</label>
+							</div>
+							<input type="submit" value="Submit" />
+						</form>
+				</div>
 			</div>
-		</div>
 	</body>
 </html>

@@ -7,17 +7,19 @@ from django.views import generic
 from .models import Users,Question,HashList,Answer,AnswerEntries,memberProposal
 import datetime
 from .EtherFeeds import authUser,addUser
-def index(request):
-	args={}
+def index(request,error_message=""):
+	args={'error_message':error_message}
 	return render(request, 'etherfeeds/index.html', args)
+def logout(request):
+	args={}
+	request.session.clear()
+	return HttpResponseRedirect(reverse('etherfeeds:index'))
 def dashboard(request):
 	if authUser(str(request.user)):
-		addUser('0x715f6885102c954077956EF4Eb36d6BfD1C3DE73')
 		args={'user':request.user}
 		return render(request,'etherfeeds/dashboard.html',args)
 	else:
 		args={'error_message':"You are still not a member of the compnay"}
-		request.session.clear()
 		return HttpResponseRedirect(reverse('etherfeeds:index'))
 def createpoll(request):
 	args={}
@@ -92,3 +94,6 @@ def answerUpDown(request,answerId,questionId):
 def memberProposal(request):
 	proposer	= request.user
 	proposalFor	= request.POST['publicAddr']
+	gender		= request.POST['gender']
+	education 	= request.POST['education']
+	return HttpResponseRedirect(reverse('etherfeeds:dashboard'))

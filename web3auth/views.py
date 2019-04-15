@@ -1,6 +1,6 @@
 import random
 import string
-
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, reverse
 from django.urls.exceptions import NoReverseMatch
 from django.contrib.auth import login, authenticate
@@ -45,13 +45,14 @@ def login_api(request):
 			if form.is_valid():
 				signature, address = form.cleaned_data.get("signature"), form.cleaned_data.get("address")
 				del request.session['login_token']
+
 				user = authenticate(request, token=token, address=address, signature=signature)
 				if user:
 					login(request, user, 'web3auth.backend.Web3Backend')
 					return JsonResponse({'success': True, 'redirect_url':"{% url 'etherfeeds:dashboard' %}"})
 				else:
 					error = _("Can't find a user for the provided signature with address {address}").format(address=address)
-					return JsonResponse({'success': False, 'error': error,'redirect_url':"{% url 'etherfeeds:dashboard' %}"})
+					return JsonResponse({'success': False, 'error': error,'redirect_url':"{% url 'etherfeeds:index' %}"})
 			else:
 				return JsonResponse({'success': False, 'error': json.loads(form.errors.as_json()),'redirect_url':"{% url 'etherfeeds:dashboard' %}"})
 """

@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
 	url(r'^auto_login/', auto_login, name='auto_login'),
 	url(r'dashboard/',views.dashboard,name='dashboard'),
+	url(r'logout/',views.logout,name='logout'),
 	url(r'createpoll/',views.createpoll,name='createpoll'),
 	url(r'memberProposal/',views.memberProposal,name='memberProposal'),
 	url(r'addmember/',views.addmember,name='addmember'),
