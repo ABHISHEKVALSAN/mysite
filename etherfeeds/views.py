@@ -4,9 +4,9 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
-from django.contrib.auth.models import User
 from web3 import Web3
 from .models import Users,Question,HashList,Answer,AnswerEntries,memberProposal
+from .EtherFeeds import authUser
 import datetime
 
 from .EtherFeeds import authUser,addUser
