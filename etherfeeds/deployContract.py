@@ -5,7 +5,6 @@ from eth_account import Account
 from web3 import Web3, HTTPProvider
 from solcx import compile_source
 from web3.contract import ConciseContract
-from django.contrib.auth.models import User
 # Solidity source code
 # user=Web3.toChecksumAddress(user)
 import pickle

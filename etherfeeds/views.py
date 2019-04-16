@@ -4,9 +4,10 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
+from django.contrib.auth.models import User
 from web3 import Web3
 from .models import Users,Question,HashList,Answer,AnswerEntries,memberProposal
-from .EtherFeeds import authUser
+from .EtherFeeds import authUser,addUser
 import datetime
 
 from .EtherFeeds import authUser,addUser
@@ -148,10 +149,11 @@ def memberProposal(request):
 		try:
 			Obj	=	Users.objects.get(usrAddr=proposalFor,usrSig=proposer)
 		except:
+			tx_receipt=addUser(request.user,proposalFor)
+			print(tx_receipt)
 			Users.objects.create(usrAddr=proposalFor,usrSig=proposer)
 			suser=User.objects.create_superuser(username=proposalFor,email="",password="Ia23yoahaf!")
 			suser.save()
 		return HttpResponseRedirect(reverse('etherfeeds:dashboard'))
 	else:
-		msg=1
 		return HttpResponseRedirect(reverse('etherfeeds:addmember'))

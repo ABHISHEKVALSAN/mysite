@@ -29,12 +29,12 @@ acct = w3.eth.account.privateKeyToAccount('CDD46AA3C0F33B3283CEC649C0C09BC374D90
 def authUser(user):
 	return contract.functions.isMemberOf(user).call()
 def addUser(oldUser,newUser):
-	txn_dict={'from': oldUser,
-	'nonce': w3.eth.getTransactionCount(oldUser),
+	txn_dict={'from': acct.address,
+	'nonce': w3.eth.getTransactionCount(acct.address),
 	'gas': 1728712,
 	'gasPrice': w3.toWei('21', 'gwei')}
 	tx_hash=contract.functions.addMember(newUser).buildTransaction(txn_dict)
 	signed = acct.signTransaction(tx_hash)
 	txn_hash=w3.eth.sendRawTransaction(signed.rawTransaction)
-	tx_receipt =w3.eth.waitForTransactionReceipt(txn_hash)
-	return authUser(newUser)
+	tx_receipt = w3.eth.waitForTransactionReceipt(txn_hash)
+	return tx_receipt
