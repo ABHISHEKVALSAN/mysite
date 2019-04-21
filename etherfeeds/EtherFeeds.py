@@ -38,3 +38,14 @@ def addUser(oldUser,newUser):
 	txn_hash=w3.eth.sendRawTransaction(signed.rawTransaction)
 	tx_receipt = w3.eth.waitForTransactionReceipt(txn_hash)
 	return tx_receipt
+
+def addQu(questionAsker,newUser,q_hash):
+	txn_dict={'from': acct.address,
+	'nonce': w3.eth.getTransactionCount(acct.address),
+	'gas': 2000000,
+	'gasPrice': w3.toWei('50', 'gwei')}
+	tx_hash=contract.functions.addMember(newUser).buildTransaction(txn_dict)
+	signed = acct.signTransaction(tx_hash)
+	txn_hash=w3.eth.sendRawTransaction(signed.rawTransaction)
+	tx_receipt = w3.eth.waitForTransactionReceipt(txn_hash)
+	return tx_receipt

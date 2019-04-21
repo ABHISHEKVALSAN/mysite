@@ -961,11 +961,11 @@
 				</center>
 			</div>
 				<div class="form-style-8">
-					<h2>Add some info about new Member</h2>
+					<h2>Add  Member</h2>
 						<form action=="{% url 'etherfeeds:memberProposal' %}" method="post">
 							{% csrf_token %}
 							MEMBER ADDRESS
-							<input type="text" name="publicAddr" placeholder="0xfa4E1d39e2E2C65adb26d24b8B10b85686e640fe" required="True"/>
+							<input type="text" name="publicAddr"  required="True"/>
 							<input type="submit" value="Submit" />
 						</form>
 						{{error_message}}

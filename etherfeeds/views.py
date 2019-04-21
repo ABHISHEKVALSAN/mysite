@@ -10,7 +10,7 @@ from .models import Users,Question,HashList,Answer,AnswerEntries,memberProposal
 from .EtherFeeds import authUser,addUser
 import datetime
 
-from .EtherFeeds import authUser,addUser
+from .EtherFeeds import authUser,addUser,addQu
 def index(request,error_message=""):
 	init(request)
 	args={'error_message':error_message}
@@ -40,17 +40,19 @@ def addQuestion(request):
 	args={}
 	question_text 	= request.POST['question']
 	pub_date		= datetime.datetime.now()
-	etherSpent		= request.POST['ether']
 	time_exp_days	= request.POST['time_exp_days']
 	time_exp_hours	= request.POST['time_exp_hours']
 	time_exp_minutes= request.POST['time_exp_minutes']
 	exp_time		= pub_date+datetime.timedelta(days=int(time_exp_days))+datetime.timedelta(hours=int(time_exp_hours))+datetime.timedelta(minutes=int(time_exp_minutes))
 	usrAddr			= request.user
+	tx_receipt=addQu(request.user,'0x29246a5B71c9876E71B58f79f49D5F1454D87686',hash(question_text))
+	print(tx_receipt)
 	try:
 		user	=	Users.objects.get(usrAddr=usrAddr)
 	except:
 		user	=	Users.objects.create(usrAddr=usrAddr,usrSig="DEF132DA167829F8")
-	Question.objects.create(question_text=question_text,pub_date=pub_date,etherSpent=etherSpent,\
+
+	Question.objects.create(question_text=question_text,pub_date=pub_date,\
 	time_exp_days=time_exp_days,time_exp_hours=time_exp_hours,time_exp_minutes=time_exp_minutes,\
 	user=user,exp_time=exp_time)
 	return HttpResponseRedirect(reverse('etherfeeds:dashboard'))

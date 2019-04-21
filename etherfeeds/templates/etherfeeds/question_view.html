@@ -1005,7 +1005,7 @@
 		<form action="{% url 'etherfeeds:addAnswer' question.id %}" method="post">
 			{% csrf_token %}
 				<input type="text" id="upvote" name="newAnswer">
-				<label for="newAnswer" ><textarea name="paragraph_text" cols="50" rows="10"></textarea></label><br>
+				<label for="newAnswer" ></label><br>
 				<input type="submit" value="Submit">
 		</form>
 		</div>

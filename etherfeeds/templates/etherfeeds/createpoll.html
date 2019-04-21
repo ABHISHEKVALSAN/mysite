@@ -1,7 +1,7 @@
 {% load static %}
 <html>
 	<head>
-		<title>EF - questions</title>
+		<title> EtherFeeds</title>
 		<link rel="stylesheet" type="text/css" href="{% static 'etherfeeds/css/bootstrap.css' %}" rel="stylesheet" id="bootstrap-css">
 		<script src="{% static  'etherfeeds/js/bootstrap.min.js' %}"></script>
 		<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -966,8 +966,7 @@
 						{% csrf_token %}
 						Question
     				<input type="text" name="question" id="question" placeholder="Which topic to publish?" required="True"/>
-						Bounty in ETH
-    				<input type="number" id="ether" step="0.001" name="ether" placeholder="24" required="True"/><br/>
+						
 						<div class="time-descrip">Day(s)</div> <br/>
 						<input class="question-input" id="time_exp_days" name="time_exp_days" type="number" min="0" max="20" required="True">
 						<div class="time-descrip">Hour(s)</div> <br/>

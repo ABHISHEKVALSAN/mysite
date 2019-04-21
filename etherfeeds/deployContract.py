@@ -10,39 +10,146 @@ from web3.contract import ConciseContract
 import pickle
 contract_source_code = '''
 pragma solidity 0.5.7;
-contract EtherFeeds{
-	address admin;
-	mapping (address => bool) isMember;
 
-	constructor() public{
-    	admin = msg.sender; //initialising admin address
-		isMember[admin]=true;
-	}
+contract EtherFeeds {
+    //Address of the school administrator
+    address admin;
+    uint numMembers;
+    uint PeriodInMinutes = 600;
+    mapping (address => Proposal) addMembers;
+    //mapping (address => Proposal) removeMembers;
+    mapping (address => int) member;
+    mapping (address => bool) isMember;
 
-	function kill() public{
-	    require (msg.sender == admin , "Only admin can kill");
-	    selfdestruct(msg.sender);
-	}
+    //membership
+    struct Proposal{
+        address cMember;
+        uint minTimetoVote;
+        uint numVotes;
+        bool open;
+        mapping (address => bool) voted;
+    }
 
-	modifier onlyAdmin () {
-	    require(msg.sender == admin, "Only admin can add new member");
-	    _;
-	}
+    // Q&A Structs
+    struct Question{
+        uint256 hash;
+        uint256 bounty; // denominated in WEI. 1 ether = 10^18 wei
+        address askerAddr;
+        mapping(uint256 => Answer) answers;
+        mapping(address => bool) isAnswered;
+        //mapping(uint256 => uint256) indexes;
+        uint minTimetoAnswer;
 
-	modifier onlyMembers () {
-	    require(isMember[msg.sender], "not a member of the DAO");
-	    _;
-	}
+        uint numAnswers;
+        bool settled;
+       // bool isValue; // checks for existence of key
+    }
 
-	function isMemberOf(address memberAddress) public view returns (bool){
-	    return isMember[memberAddress];
-	}
+    struct Answer{
+        address answererAddr;
+        uint256 answerHash;
+        uint256 numUpvotes;
+        uint256 numDownvotes;
 
-	function addMember(address memberAddress) public {
-	    require(isMember[memberAddress] != true, "Already a member");
-	    isMember[memberAddress] =true;
+       // bool isValue;
+        mapping(address => bool) voted;
+    }
 
-	}
+    mapping (uint256 => Question) public questions;
+
+
+    //Constructor
+    constructor() public{
+        admin = msg.sender; //initialising admin address
+        isMember[admin] = true;
+    }
+
+    modifier onlyAdmin () {
+        require(msg.sender == admin, "Only admin can add new member");
+        _;
+    }
+
+    modifier onlyMembers () {
+        require(isMember[msg.sender], "not a member of the DAO");
+        _;
+    }
+
+    function kill() public{
+        //The admin has the right to kill the contract at any time.
+        //Take care that no one else is able to kill the contract
+        require (msg.sender == admin , "Only admin can kill");
+        selfdestruct(msg.sender);
+    }
+
+    function isMemberOf(address memberAddress) public view returns (bool){
+        return isMember[memberAddress];
+    }
+
+    // Governance
+    function proposal(address pMember, address cMember, uint minTimetoVote) onlyMembers public {
+
+        addMembers[pMember] = Proposal({
+                cMember: cMember,
+                minTimetoVote: now + minTimetoVote * 1 minutes,
+                numVotes:1,
+                open: true
+                //voted[pMember]: true
+
+        });
+
+    }
+
+    function voteOnProposal(address pMember, bool vote) onlyMembers public{
+
+        if(vote) {
+            require(!addMembers[pMember].voted[msg.sender] && addMembers[pMember].open);
+            addMembers[pMember].numVotes++;
+        }
+
+
+
+    }
+
+    function addMember(address pMember) public {
+        isMember[pMember]=true;
+    }
+
+
+
+ // Q&A functions
+
+    function addQuestion(uint256 questionHash, uint256 bounty, uint minTimetoAnswer) onlyMembers public {
+        questions[questionHash] = Question({
+            askerAddr: msg.sender,
+            hash: questionHash,
+            bounty: bounty,
+            numAnswers: 0,
+            settled: false,
+            minTimetoAnswer: now + minTimetoAnswer * 1 minutes
+        });
+    }
+
+    function answer(uint256 questionHash, uint256 answerHash) onlyMembers public {
+        require(!questions[questionHash].isAnswered[msg.sender] && !questions[questionHash].settled);
+        questions[questionHash].answers[answerHash] = Answer({
+            answererAddr: msg.sender,
+            answerHash: answerHash,
+            numUpvotes: 0,
+            numDownvotes: 0
+            });
+    }
+
+    function voteOnAnswer(uint256 questionHash, uint256 answerHash, bool vote)  onlyMembers public {
+        require(!questions[questionHash].settled);
+        if (vote)
+            questions[questionHash].answers[answerHash].numUpvotes++;
+        else
+            questions[questionHash].answers[answerHash].numDownvotes++;
+
+
+    }
+
+
 }
 '''
 
